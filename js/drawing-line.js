@@ -1,30 +1,45 @@
 class DrawingLine extends PaintFunction{
-    constructor(contextReal){
+    constructor(contextReal,contextDraft){
         super();
-        this.context = contextReal;            
+        this.contextReal = contextReal;
+        this.contextDraft = contextDraft; 
     }
     
     onMouseDown(coord,event){
-        this.context.strokeStyle = "#df4b26";
-        this.context.lineJoin = "round";
-        this.context.lineWidth = 5;
-        this.context.beginPath();
-        this.context.moveTo(coord[0],coord[1]);
-        this.draw(coord[0],coord[1]);
+        this.origX = coord[0];
+        this.origY = coord[1];
+        this.contextReal.strokeStyle = "#df4b26";
+        this.contextReal.lineJoin = "round";
+        this.contextReal.lineWidth = 5;
+        this.contextReal.beginPath();
+        this.contextReal.moveTo(coord[0],coord[1]);
+        this.contextDraft.strokeStyle = "#df4b26";
+        this.contextDraft.lineJoin = "round";
+        this.contextDraft.lineWidth = 5;
+
+
+        
     }
     onDragging(coord,event){
-        this.draw(coord[0],coord[1]);
+        contextDraft.beginPath();
+        contextDraft.moveTo(this.origX,this.origY);
+        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
+        contextDraft.lineTo(coord[0],coord[1]);
+        contextDraft.stroke();
+        
+        
+
+ 
     }
 
     onMouseMove(){}
-    onMouseUp(){}
+    onMouseUp(coord,event){
+        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
+        this.contextReal.lineTo(coord[0],coord[1]);
+        this.contextReal.stroke();
+
+    }
     onMouseLeave(){}
     onMouseEnter(){}
 
-    draw(x,y){
-        this.context.lineTo(x,y);
-        this.context.moveTo(x,y);
-        this.context.closePath();
-        this.context.stroke();    
-    }
 }
