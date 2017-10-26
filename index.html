@@ -29,7 +29,7 @@
                     <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
                 </button>
                 <button id="sqaure" type="button" class="btn btn-default" aria-label="Left Align">
-                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                    <i id="sqaure2" class="fa fa-square-o" aria-hidden="true"></i>
                 </button>
                 <button id="circle" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-circle-thin" aria-hidden="true"></i>
@@ -52,9 +52,20 @@
     <script type='text.javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
+        // unselect = Default = DrawingLine
         currentFunction = new DrawingLine(contextReal,contextDraft);
-
-        //currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        $("#pencil").click(()=>{
+        currentFunction = new DrawingLine(contextReal,contextDraft);
+        });
+        /*$("#eraser").click(()=>{
+        currentFunction = new EraseLine(contextReal,contextDraft);
+        });*/
+        $("#sqaure").click(()=>{
+        currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        });
+        /*$("#circle").click(()=>{
+        currentFunction = new DrawingCircle(contextReal,contextDraft);
+        });*/
     </script>
 </body>
 
