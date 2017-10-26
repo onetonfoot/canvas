@@ -50,4 +50,10 @@ class PaintFunction{
     onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
+
+    lineWidth(){
+        return document.querySelector("#line-width").value
+    }
+
+
 }    
