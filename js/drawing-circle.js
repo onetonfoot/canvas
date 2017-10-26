@@ -10,8 +10,8 @@ class DrawingCircle extends PaintFunction{
         this.origY = coord[1];
     }
     onDragging(coord,event){
-        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.radius = this.calculateRadius(this.origX,this.origY,coord[0],coord[1])
+        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(this.contextDraft,coord)
     }
     calculateRadius(x1,y1,x2,y2){
@@ -30,6 +30,7 @@ class DrawingCircle extends PaintFunction{
     onMouseMove(){
     }
     onMouseUp(coord){
+        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(this.contextReal,coord)
     }
     onMouseLeave(){
