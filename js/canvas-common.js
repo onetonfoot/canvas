@@ -39,7 +39,11 @@ $('#canvas-draft').mouseenter(function(e){
 });
 
 class PaintFunction{
-    constructor(){}
+    constructor(){
+    this.fillColor = "green"
+    this.strokeColor = "black"
+    }
+
     onMouseDown(){}
     onDragging(){}
     onMouseMove(){}

@@ -57,7 +57,7 @@
     <script type='text/javascript' src="js/drawing-line.js"></script>
     <script type='text/javascript' src="js/eraser.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
-    <script type='text.javascript' src="js/drawing-circle.js"></script>
+    <script type='text/javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine
@@ -74,9 +74,9 @@
         $("#sqaure").click(()=>{
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
-        /*$("#circle").click(()=>{
+        $("#circle").click(()=>{
         currentFunction = new DrawingCircle(contextReal,contextDraft);
-        });*/
+        });
         $("#reset").click(()=>{
         resetFunction = new DrawingRectangle(contextReal, contextDraft);
         resetFunction.contextReal.clearRect(0,0,canvasDraft.width,canvasDraft.height);
