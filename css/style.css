@@ -30,15 +30,12 @@ html, body {
 
 
 #canvas-container{
-    position: relative;
-    height: 400px;
-    width: 700px;
     border: 1px solid black;
 }
 
 
-#canvas-real, #canvas-draft{
+.canvas {
     position: absolute;
-    height: 400px;
-    width: 700px;
+    border: 1px solid black;
+
 }

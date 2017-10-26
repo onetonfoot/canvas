@@ -36,17 +36,16 @@
                 </button>
             </div>
             <div id="canvas-container">
-                <canvas id="canvas-real"> </canvas>
-                <canvas id="canvas-draft"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
+                <canvas id="canvas-draft" class="canvas" width='700px' height='400px'></canvas>
             </div>
         </div>
     </div>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
-    <canvas id="canvas-draft" class="canvas" width='700px' height='400px'></canvas>
+
     <script type='text/javascript' src="js/canvas-common.js"></script>
     <script type='text/javascript' src="js/drawing-line.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
@@ -55,7 +54,7 @@
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         currentFunction = new DrawingLine(contextReal,contextDraft);
 
-        // currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        //currentFunction = new DrawingRectangle(contextReal, contextDraft);
     </script>
 </body>
 
