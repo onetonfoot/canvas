@@ -52,6 +52,10 @@
                 TARGET TEXT
                 </p>
                 <!--<em id='basic-log'></em>-->
+                <button class="btn btn-default">
+                    <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
+                    <span class="range-value"></span>
+                </button>
             </div>
             <div id="canvas-container">
                 <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
@@ -63,6 +67,7 @@
 
 
 
+    <script type='text/javascript' src="js/line-width.js"></script>
     <script type='text/javascript' src="js/canvas-common.js"></script>
     <script type='text/javascript' src="js/pencil.js"></script>
     <script type='text/javascript' src="js/drawing-line.js"></script>
@@ -73,25 +78,25 @@
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine
-        currentFunction = new Pencil(contextReal,contextDraft);
-        $("#pencil").click(()=>{
-        currentFunction = new Pencil(contextReal,contextDraft);
+        currentFunction = new Pencil(contextReal, contextDraft);
+        $("#pencil").click(() => {
+            currentFunction = new Pencil(contextReal, contextDraft);
         });
-        $("#drawingline").click(()=>{
-        currentFunction = new DrawingLine(contextReal,contextDraft);
+        $("#drawingline").click(() => {
+            currentFunction = new DrawingLine(contextReal, contextDraft);
         });
-        $("#eraser").click(()=>{
-        currentFunction = new Eraser(contextReal,contextDraft);
+        $("#eraser").click(() => {
+            currentFunction = new Eraser(contextReal, contextDraft);
         });
-        $("#sqaure").click(()=>{
-        currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        $("#sqaure").click(() => {
+            currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
-        $("#circle").click(()=>{
-        currentFunction = new DrawingCircle(contextReal,contextDraft);
+        $("#circle").click(() => {
+            currentFunction = new DrawingCircle(contextReal, contextDraft);
         });
-        $("#reset").click(()=>{
-        resetFunction = new DrawingRectangle(contextReal, contextDraft);
-        resetFunction.contextReal.clearRect(0,0,canvasDraft.width,canvasDraft.height);
+        $("#reset").click(() => {
+            resetFunction = new DrawingRectangle(contextReal, contextDraft);
+            resetFunction.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         });
     </script>
 </body>
