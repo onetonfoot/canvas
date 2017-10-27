@@ -9,7 +9,7 @@ class Pencil extends PaintFunction{
         this.context.beginPath();
         this.setContext(this.context);
         this.context.moveTo(coord[0],coord[1]);
-        this.draw(coord[0],coord[1]);
+        //this.draw(coord[0],coord[1]);
     }
     onDragging(coord,event){
         this.draw(coord[0],coord[1]);

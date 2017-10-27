@@ -50,6 +50,10 @@
                 <button id="reset" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
+                <!-- eyedropper -->
+                <button id="eyedropper" type="button" class="btn btn-default" aria-label="Left Align">
+                    <i class="fa fa-eyedropper" aria-hidden="true"></i>
+                </button>  
                 <!-- Stroke Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
                     stroke<br><input type='text' id="strokecolor"/>
@@ -61,7 +65,9 @@
                 <!-- Bg Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
                     bg<br><input type='text' id="bgcolor"/>
-                </button>                
+                </button>          
+
+    
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
                     <span class="range-value"></span>
@@ -134,6 +140,7 @@
     <script type='text/javascript' src="js/line-width.js"></script>
     <script type='text/javascript' src="js/line-cap.js"></script>
     <script type='text/javascript' src="js/line-join.js"></script>
+    <script type='text/javascript' src="js/eyedropper.js"></script>
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine
@@ -159,6 +166,9 @@
         $("#reset").click(() => {
             resetFunction = new DrawingRectangle(contextReal, contextDraft);
             resetFunction.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        });
+        $("#eyedropper").click(() => {
+            currentFunction = new Eyedropper(contextReal, contextDraft);
         });
     </script>
 </body>

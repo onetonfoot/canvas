@@ -20,7 +20,9 @@ $('#canvas-draft').mousemove(function (e) {
         let mouseY = e.pageY - this.offsetTop;
         currentFunction.onDragging([mouseX, mouseY], e);
     }
-    currentFunction.onMouseMove(e, this);
+    let mouseX = e.pageX - this.offsetLeft;
+    let mouseY = e.pageY - this.offsetTop;
+    currentFunction.onMouseMove([mouseX, mouseY],e, this);
 });
 $('#canvas-draft').mouseup(function (e) {
     dragging = false;

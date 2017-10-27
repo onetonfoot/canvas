@@ -8,6 +8,7 @@ $("#strokecolor").spectrum({
     maxSelectionSize: 10,
     preferredFormat: "hex",
     localStorageKey: "spectrum.demo",
+    showButtons: false,
     move: function (color) {
         
         $(currentFunction.strokeColor = color.toHexString());
@@ -53,6 +54,7 @@ $("#fillcolor").spectrum({
     maxSelectionSize: 10,
     preferredFormat: "hex",
     localStorageKey: "spectrum.demo",
+    showButtons: false,
     move: function (color) {
 
         $(currentFunction.fillColor = color.toHexString());
@@ -98,6 +100,7 @@ $("#bgcolor").spectrum({
     maxSelectionSize: 10,
     preferredFormat: "hex",
     localStorageKey: "spectrum.demo",
+    showButtons: false,
     move: function (color) {
 
         //$(currentFunction.fillColor = color.toHexString());
