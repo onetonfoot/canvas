@@ -5,49 +5,53 @@ let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
 
-$('#canvas-draft').mousedown(function(e){
+
+
+
+$('#canvas-draft').mousedown(function (e) {
     let mouseX = e.pageX - this.offsetLeft;
     let mouseY = e.pageY - this.offsetTop;
-    currentFunction.onMouseDown([mouseX,mouseY],e);
+    currentFunction.onMouseDown([mouseX, mouseY], e);
     dragging = true;
 });
-$('#canvas-draft').mousemove(function(e){
-    if(dragging){
+$('#canvas-draft').mousemove(function (e) {
+    if (dragging) {
         let mouseX = e.pageX - this.offsetLeft;
         let mouseY = e.pageY - this.offsetTop;
-        currentFunction.onDragging([mouseX,mouseY],e);
+        currentFunction.onDragging([mouseX, mouseY], e);
     }
-    currentFunction.onMouseMove(e,this);
+    currentFunction.onMouseMove(e, this);
 });
-$('#canvas-draft').mouseup(function(e){
+$('#canvas-draft').mouseup(function (e) {
     dragging = false;
     let mouseX = e.pageX - this.offsetLeft;
     let mouseY = e.pageY - this.offsetTop;
-    currentFunction.onMouseUp([mouseX,mouseY],e);
+    currentFunction.onMouseUp([mouseX, mouseY], e);
 });
-$('#canvas-draft').mouseleave(function(e){
+$('#canvas-draft').mouseleave(function (e) {
     dragging = false;
     let mouseX = e.pageX - this.offsetLeft;
     let mouseY = e.pageY - this.offsetTop;
-    currentFunction.onMouseLeave([mouseX,mouseY],e);
+    currentFunction.onMouseLeave([mouseX, mouseY], e);
 });
 
-$('#canvas-draft').mouseenter(function(e){
+$('#canvas-draft').mouseenter(function (e) {
     let mouseX = e.pageX - this.offsetLeft;
     let mouseY = e.pageY - this.offsetTop;
-    currentFunction.onMouseEnter([mouseX,mouseY],e);
+    currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
-class PaintFunction{
-    constructor(){
-    this.fillColor = "green"
-    this.strokeColor = "black"
-    this.lineCap = "square"
+
+
+class PaintFunction {
+    constructor() {
+        this.fillColor = "green"
+        this.strokeColor = "black"
+        this.lineCap = "butt"
+        this.lineWidth = "5"
     }
-    get lineWidth(){
-        return document.querySelector("#line-width").value
-    }
-    setContext(context){
+
+    setContext(context) {
         context.lineCap = this.lineCap
         context.lineWidth = this.lineWidth;
         context.strokeStyle = this.strokeColor
@@ -55,10 +59,11 @@ class PaintFunction{
         context.fillStyle = this.fillColor;
         context.fill();
     }
-    onMouseDown(){}
-    onDragging(){}
-    onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
-}    
+
+    onMouseDown() {}
+    onDragging() {}
+    onMouseMove() {}
+    onMouseUp() {}
+    onMouseLeave() {}
+    onMouseEnter() {}
+}
