@@ -24,6 +24,11 @@ body {
     display: flex;
 }
 
+.shapes {
+    display: flex;
+    flex-direction: column;
+}
+
 #canvas-container {
     height: 400px;
     width: 700px;
