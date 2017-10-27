@@ -43,7 +43,6 @@ $('#canvas-draft').mouseenter(function (e) {
 
 class PaintFunction{
     constructor(){
-    //if we set the default color here , everytime the user change function , the color will change to default
     this.fillColor = $("#fillcolor").spectrum("get");
     this.strokeColor = $("#strokecolor").spectrum("get");
     
