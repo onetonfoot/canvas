@@ -17,6 +17,8 @@ class DrawingRectangle extends PaintFunction{
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         context.rect(this.origX,this.origY,coord[0]- this.origX,coord[1] - this.origY)
         this.setContext(context)
+        context.stroke();
+        context.fill();
         context.closePath();
     }
     onMouseUp(coord){

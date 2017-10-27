@@ -64,14 +64,29 @@
 
                 <div class="dropdown">
                     Line Type:
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                    <button id="line-cap" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="true">
-                        Circle
+                        Round
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li> <a href="#" data-value="action">Circle</a> </li>
+                        <li> <a href="#" data-value="action">Round</a> </li>
                         <li> <a href="#" data-value="action">Square</a> </li>
+                        <li> <a href="#" data-value="action">Butt</a> </li>
+                    </ul>
+                </div>
+
+                <div class="dropdown">
+                    Line Join:
+                    <button id="line-join" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true">
+                        Round
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li> <a href="#" data-value="action">Round</a> </li>
+                        <li> <a href="#" data-value="action">Bevel</a> </li>
+                        <li> <a href="#" data-value="action">Miter</a> </li>
                     </ul>
                 </div>
 
@@ -95,6 +110,8 @@
     <script type='text/javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript' src="js/colorwell.js"></script>
     <script type='text/javascript' src="js/line-width.js"></script>
+    <script type='text/javascript' src="js/line-cap.js"></script>
+    <script type='text/javascript' src="js/line-join.js"></script>
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine

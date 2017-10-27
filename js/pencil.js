@@ -3,12 +3,11 @@ class Pencil extends PaintFunction{
         super();
         this.context = contextReal;            
     }
-    
+
     onMouseDown(coord,event){
-        this.context.strokeStyle = this.strokeColor;
-        this.context.lineJoin = "round";
-        this.context.lineWidth = this.lineWidth;
+        // this.context.lineJoin = "round";
         this.context.beginPath();
+        this.setContext(this.context);
         this.context.moveTo(coord[0],coord[1]);
         this.draw(coord[0],coord[1]);
     }
@@ -22,6 +21,7 @@ class Pencil extends PaintFunction{
     onMouseEnter(){}
 
     draw(x,y){
+        this.context.lineCap = this.lineCap;
         this.context.lineTo(x,y);
         this.context.moveTo(x,y);
         this.context.closePath();
