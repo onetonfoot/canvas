@@ -11,9 +11,10 @@
     <!-- font-awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
-    <!-- Jquery -->    
+    <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>   
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
     <!-- color well -->
     <script src='/js/spectrum.js'></script>
     <link rel='stylesheet' href='/css/spectrum.css' />
@@ -51,15 +52,20 @@
                 </button>
                 <!-- Stroke Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    <input type='text' id="strokecolor"/>
-                </button>    
+                    <input type='text' id="strokecolor" />
+                </button>
                 <!-- Fill Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    <input type='text' id="fillcolor"/>
-                </button>                    
+                    <input type='text' id="fillcolor" />
+                </button>
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
                     <span class="range-value"></span>
+                </button>
+
+                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    <img id="canvas-img" alt="Save">
                 </button>
 
                 <div class="dropdown">
@@ -70,9 +76,15 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li> <a href="#" data-value="action">Round</a> </li>
-                        <li> <a href="#" data-value="action">Square</a> </li>
-                        <li> <a href="#" data-value="action">Butt</a> </li>
+                        <li>
+                            <a href="#" data-value="action">Round</a>
+                        </li>
+                        <li>
+                            <a href="#" data-value="action">Square</a>
+                        </li>
+                        <li>
+                            <a href="#" data-value="action">Butt</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -84,9 +96,15 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li> <a href="#" data-value="action">Round</a> </li>
-                        <li> <a href="#" data-value="action">Bevel</a> </li>
-                        <li> <a href="#" data-value="action">Miter</a> </li>
+                        <li>
+                            <a href="#" data-value="action">Round</a>
+                        </li>
+                        <li>
+                            <a href="#" data-value="action">Bevel</a>
+                        </li>
+                        <li>
+                            <a href="#" data-value="action">Miter</a>
+                        </li>
                     </ul>
                 </div>
 

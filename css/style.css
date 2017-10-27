@@ -50,3 +50,7 @@ input[type=range][orient=vertical]
 textarea {
     border: 1px dashed black;
 }
+
+#canvas-img{
+    /* display: none; */
+}

@@ -49,6 +49,7 @@ class PaintFunction{
     this.lineCap = $("#line-cap").text().trim().toLowerCase()
     this.lineJoin = $("#line-join").text().trim().toLowerCase()
     }
+
     get lineWidth(){
         return document.querySelector("#line-width").value
     }
