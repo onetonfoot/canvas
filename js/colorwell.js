@@ -6,8 +6,8 @@ $(".basic").spectrum({
     }
 });
 
-$("#full").spectrum({
-    color: "#ECC",
+$("#strokecolor").spectrum({
+    color: "#FF0000",
     showInput: true,
     className: "full-spectrum",
     showInitial: true,
@@ -18,7 +18,8 @@ $("#full").spectrum({
     localStorageKey: "spectrum.demo",
     move: function (color) {
         $("#basic-log").text("change called: " + color.toHexString());
-        $(basic).css('color', color.toHexString());
+        //$(basic).css('color', color.toHexString());
+        $(currentFunction.strokeColor = color.toHexString());
 
     },
     show: function () {

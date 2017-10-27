@@ -41,7 +41,8 @@ $('#canvas-draft').mouseenter(function(e){
 class PaintFunction{
     constructor(){
     this.fillColor = "green"
-    this.strokeColor = "black"
+    this.strokeColor = ""
+    
     }
 
     onMouseDown(){}
