@@ -25,7 +25,9 @@ body {
 }
 
 #canvas-container {
-    border: 1px solid black;
+    height: 400px;
+    width: 700px;
+    padding: 1px;
 }
 
 .canvas {
@@ -45,4 +47,6 @@ input[type=range][orient=vertical]
     padding: 0 4px;
 }
 
-
+textarea {
+    border: 1px dashed black;
+}
