@@ -11,9 +11,10 @@
     <!-- font-awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
-    <!-- Jquery Willis:I put jquery up here for the color specturm running-->    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
-    <!-- color specturm css and js -->
+    <!-- Jquery -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>   
+    <!-- color well -->
     <script src='/js/spectrum.js'></script>
     <link rel='stylesheet' href='/css/spectrum.css' />
     <!-- custom css -->
@@ -42,6 +43,9 @@
                 <button id="circle" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-circle-thin" aria-hidden="true"></i>
                 </button>
+                <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
+                    <i class="fa fa-font" aria-hidden="true"></i>
+                </button>
                 <button id="reset" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
@@ -68,6 +72,7 @@
     <script type='text/javascript' src="js/canvas-common.js"></script>
     <script type='text/javascript' src="js/pencil.js"></script>
     <script type='text/javascript' src="js/drawing-line.js"></script>
+    <script type='text/javascript' src="js/text.js"></script>
     <script type='text/javascript' src="js/eraser.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
@@ -90,6 +95,9 @@
         });
         $("#circle").click(() => {
             currentFunction = new DrawingCircle(contextReal, contextDraft);
+        });
+        $("#text").click(() => {
+            currentFunction = new Text(contextReal, contextDraft);
         });
         $("#reset").click(() => {
             resetFunction = new DrawingRectangle(contextReal, contextDraft);
