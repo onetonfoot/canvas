@@ -11,6 +11,11 @@
     <!-- font-awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
+    <!-- Jquery -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+    <!-- color well -->
+    <script src='/js/spectrum.js'></script>
+    <link rel='stylesheet' href='/css/spectrum.css' />
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -40,9 +45,15 @@
                 <button id="reset" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
+                <button id="reset" type="button" class="btn btn-default" aria-label="Left Align">
+                <input type='text' id="full"/>
+                </button>          
+                <p id="basic" style="font-family: arial, sans-serif; font-size: 3em; font-weight:bold;">
+                TARGET TEXT
+                </p>
+                <!--<em id='basic-log'></em>-->
             </div>
             <div id="canvas-container">
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                 <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
                 <canvas id="canvas-draft" class="canvas" width='700px' height='400px'></canvas>
             </div>
@@ -58,6 +69,7 @@
     <script type='text/javascript' src="js/eraser.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
+    <script type='text/javascript' src="js/colorwell.js"></script>
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine
