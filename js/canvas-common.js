@@ -42,18 +42,23 @@ class PaintFunction{
     constructor(){
     this.fillColor = "green"
     this.strokeColor = "black"
+    this.lineCap = "square"
     }
-
+    get lineWidth(){
+        return document.querySelector("#line-width").value
+    }
+    setContext(context){
+        context.lineCap = this.lineCap
+        context.lineWidth = this.lineWidth;
+        context.strokeStyle = this.strokeColor
+        context.stroke();
+        context.fillStyle = this.fillColor;
+        context.fill();
+    }
     onMouseDown(){}
     onDragging(){}
     onMouseMove(){}
     onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
-
-    lineWidth(){
-        return document.querySelector("#line-width").value
-    }
-
-
 }    

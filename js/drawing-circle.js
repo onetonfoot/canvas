@@ -5,36 +5,31 @@ class DrawingCircle extends PaintFunction{
         this.contextDraft = contextDraft;            
     }
     onMouseDown(coord,event){
-        this.contextReal.fillStyle = "#f44";
         this.origX = coord[0];
         this.origY = coord[1];
     }
     onDragging(coord,event){
-        this.radius = this.calculateRadius(this.origX,this.origY,coord[0],coord[1])
-        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(this.contextDraft,coord)
     }
-    calculateRadius(x1,y1,x2,y2){
+    calculateDiameter(x1,y1,x2,y2){
         let a = Math.pow(x1 - x2,2)
         let b = Math.pow(y1 - y2,2)
         let d = Math.sqrt(a + b)
-        return d/2
+        return d
     }
     draw(context,coord){
+        this.diameter = this.calculateDiameter(this.origX,this.origY,coord[0],coord[1])
+        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         context.beginPath();
-        context.fillStyle = "#f44";
-        context.arc(this.origX,this.origY  ,this.radius,0,Math.PI*2)
-        context.stroke();
+        context.arc(this.origX,this.origY  ,this.diameter,0,Math.PI*2)
+        this.setContext(context)
         context.closePath();
     }
-    onMouseMove(){
-    }
     onMouseUp(coord){
-        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(this.contextReal,coord)
     }
-    onMouseLeave(){
-    }
+    onMouseMove(){}
+    onMouseLeave(){}
     onMouseEnter(){}
 }
 
