@@ -20,7 +20,9 @@ $('#canvas-draft').mousemove(function (e) {
         let mouseY = e.pageY - this.offsetTop;
         currentFunction.onDragging([mouseX, mouseY], e);
     }
-    currentFunction.onMouseMove(e, this);
+    let mouseX = e.pageX - this.offsetLeft;
+    let mouseY = e.pageY - this.offsetTop;
+    currentFunction.onMouseMove([mouseX, mouseY],e, this);
 });
 $('#canvas-draft').mouseup(function (e) {
     dragging = false;
@@ -43,24 +45,22 @@ $('#canvas-draft').mouseenter(function (e) {
 
 class PaintFunction{
     constructor(){
-    //if we set the default color here , everytime the user change function , the color will change to default
     this.fillColor = $("#fillcolor").spectrum("get");
     this.strokeColor = $("#strokecolor").spectrum("get");
-    
-    
-    this.lineCap = "square"
+    this.lineCap = $("#line-cap").text().trim().toLowerCase()
+    this.lineJoin = $("#line-join").text().trim().toLowerCase()
     }
+
     get lineWidth(){
         return document.querySelector("#line-width").value
     }
 
     setContext(context) {
+        context.lineJoin = this.lineJoin
         context.lineCap = this.lineCap
-        context.lineWidth = this.lineWidth;
+        context.lineWidth = this.lineWidth
         context.strokeStyle = this.strokeColor
-        context.stroke();
-        context.fillStyle = this.fillColor;
-        context.fill();
+        context.fillStyle = this.fillColor
     }
 
     onMouseDown() {}

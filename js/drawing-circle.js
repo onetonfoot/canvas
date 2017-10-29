@@ -23,6 +23,8 @@ class DrawingCircle extends PaintFunction{
         context.beginPath();
         context.arc(this.origX,this.origY  ,this.diameter,0,Math.PI*2)
         this.setContext(context)
+        context.stroke();
+        context.fill();
         context.closePath();
     }
     onMouseUp(coord){
