@@ -11,9 +11,10 @@
     <!-- font-awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
-    <!-- Jquery -->    
+    <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>   
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
     <!-- color well -->
     <script src='/js/spectrum.js'></script>
     <link rel='stylesheet' href='/css/spectrum.css' />
@@ -51,12 +52,12 @@
                 </button>
                 <!-- Stroke Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    <input type='text' id="strokecolor"/>
-                </button>    
+                    <input type='text' id="strokecolor" />
+                </button>
                 <!-- Fill Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    <input type='text' id="fillcolor"/>
-                </button>                    
+                    <input type='text' id="fillcolor" />
+                </button>
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
                     <span class="range-value"></span>
@@ -70,12 +71,67 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li> <a href="#" data-value="action">Circle</a> </li>
-                        <li> <a href="#" data-value="action">Square</a> </li>
+                        <li>
+                            <a href="#" data-value="action">Circle</a>
+                        </li>
+                        <li>
+                            <a href="#" data-value="action">Square</a>
+                        </li>
                     </ul>
                 </div>
 
-
+                <form id="font-setting" class="form-inline">
+                    <label for="set-bold">
+                        <input type="checkbox" id="set-bold">Bold</label>
+                    <label for="set-italic">
+                        <input type="checkbox" id="set-italic">Italic</label>
+                    <select id="set-font-size">
+                        <option value="9">9px</option>
+                        <option value="10">10px</option>
+                        <option value="12" selected>12px</option>
+                        <option value="14">14px</option>
+                        <option value="18">18px</option>
+                        <option value="24">24px</option>
+                        <option value="36">36px</option>
+                        <option value="48">48px</option>
+                        <option value="64">64px</option>
+                        <option value="72">72px</option>
+                        <option value="96">96px</option>
+                        <option value="144">144px</option>
+                        <option value="288">288px</option>
+                    </select>
+                    <select id="set-font-family">
+                        <optgroup label="Sans Serif">
+                            <option value="Arial" selected>Arial</option>
+                            <option value="Arial Black">Arial Black</option>
+                            <option value="Arial Narrow">Arial Narrow</option>
+                            <option value="Gill Sans">Gill Sans</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Impact">Impact</option>
+                            <option value="Tahoma">Tahoma</option>
+                            <option value="Trebuchet MS">Trebuchet MS</option>
+                            <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Serif">
+                            <option value="Baskerville">Baskerville</option>
+                            <option value="Garamond">Garamond</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Hoefler Text">Hoefler Text</option>
+                            <option value="Lucida Bright">Lucida Bright</option>
+                            <option value="Palatino">Palatino</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                            <!-- <option value="Consolas/Monaco">Consolas/Monaco</option> -->
+                            <option value="Courier New">Courier New</option>
+                            <option value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="Copperplate">Copperplate</option>
+                            <option value="Papyrus">Papyrus</option>
+                            <option value="Script">Script</option>
+                        </optgroup>
+                    </select>
             </div>
             <div id="canvas-container">
                 <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
