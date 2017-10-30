@@ -115,17 +115,9 @@
                     <input type='text' id="fillcolor" />
                 </button>
                 <!-- Bg Color Selector-->
-<<<<<<< HEAD
-                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    bg
-                    <br>
-                    <input type='text' id="bgcolor" />
-                </button>
-=======
                 <button id="3color" type="button" class="btn btn-default" aria-label="Left Align">
                     bg<br><input type='text' id="bgcolor"/>
                 </button>          
->>>>>>> 0b23aeaea358cb0d0e3dc8717475f88024666cd9
                 <!-- Line width -->
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
@@ -296,10 +288,9 @@
         $("#polygon").click(() => {
             currentFunction = new Polygon(contextReal, contextDraft);
         });
-<<<<<<< HEAD
         $("#curve").click(() => {
             currentFunction = new Curve(contextReal, contextDraft);
-=======
+        });
         $("#undo").click(() => {
             if (undoData.length > 1) {
                 redoData.push(undoData.pop());
@@ -312,7 +303,6 @@
                 contextReal.putImageData(redoData[redoData.length - 1], 0, 0);
                 undoData.push(redoData.pop());
             }
->>>>>>> 0b23aeaea358cb0d0e3dc8717475f88024666cd9
         });
     </script>
 </body>

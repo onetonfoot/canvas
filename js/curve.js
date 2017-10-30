@@ -124,7 +124,6 @@ class Curve extends PaintFunction {
 
 
 // http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html
-
 // (function() {
 
 // 	var canvas, ctx, code, point, style, drag = null, dPoint;
