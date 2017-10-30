@@ -47,7 +47,7 @@ class Text extends PaintFunction {
             self.contextReal.fillStyle = self.strokeColor;
             
             for (var i = 0; i < strArray.length; i++) {
-                self.contextReal.fillText(strArray[i], x+posOffset.x, y+posOffset.y + i*(fontSize + 20));
+                self.contextReal.fillText(strArray[i], x+posOffset.x, y+posOffset.y + i*(fontSize*(1.42857143) /*adjust for line weight factor*/));
             }
             $(this).off('dblclick');
             textarea.remove();
