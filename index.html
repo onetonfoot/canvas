@@ -51,6 +51,16 @@
                             <i id="sqaure2" class="fa fa-square-o" aria-hidden="true"></i>
                         </button>
                     </div>
+                    <div>
+                        <button id="undo" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button id="redo" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="tools">
                     <div>
@@ -63,6 +73,11 @@
                     <div>
                         <button id="circle" type="button" class="btn btn-default" aria-label="Left Align">
                             <i class="fa fa-circle-thin" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button id="ellipse" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i class="fa fa-bluetooth" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div>
@@ -88,23 +103,29 @@
                     <i class="fa fa-eyedropper" aria-hidden="true"></i>
                 </button>
                 <!-- Stroke Color Selector-->
-                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
+                <button id="1color" type="button" class="btn btn-default" aria-label="Left Align">
                     stroke
                     <br>
                     <input type='text' id="strokecolor" />
                 </button>
                 <!-- Fill Color Selector-->
-                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
+                <button id="2color" type="button" class="btn btn-default" aria-label="Left Align">
                     fill
                     <br>
                     <input type='text' id="fillcolor" />
                 </button>
                 <!-- Bg Color Selector-->
+<<<<<<< HEAD
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
                     bg
                     <br>
                     <input type='text' id="bgcolor" />
                 </button>
+=======
+                <button id="3color" type="button" class="btn btn-default" aria-label="Left Align">
+                    bg<br><input type='text' id="bgcolor"/>
+                </button>          
+>>>>>>> 0b23aeaea358cb0d0e3dc8717475f88024666cd9
                 <!-- Line width -->
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
@@ -229,6 +250,7 @@
     <script type='text/javascript' src="js/curve.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
+    <script type='text/javascript' src="js/drawing-ellipse.js"></script>
     <script type='text/javascript' src="js/colorwell.js"></script>
     <script type='text/javascript' src="js/line-width.js"></script>
     <script type='text/javascript' src="js/line-cap.js"></script>
@@ -238,6 +260,10 @@
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine
+        let undoData = []; //for storing the history data
+        let redoData = []; //for redo the data 
+        undoData[0] = contextReal.createImageData(canvasReal.width, canvasReal.height);
+
         currentFunction = new Pencil(contextReal, contextDraft);
         $("#pencil").click(() => {
             currentFunction = new Pencil(contextReal, contextDraft);
@@ -254,6 +280,9 @@
         $("#circle").click(() => {
             currentFunction = new DrawingCircle(contextReal, contextDraft);
         });
+        $("#ellipse").click(() => {
+            currentFunction = new DrawingEllipse(contextReal, contextDraft);
+        });
         $("#text").click(() => {
             currentFunction = new Text(contextReal, contextDraft);
         });
@@ -267,8 +296,23 @@
         $("#polygon").click(() => {
             currentFunction = new Polygon(contextReal, contextDraft);
         });
+<<<<<<< HEAD
         $("#curve").click(() => {
             currentFunction = new Curve(contextReal, contextDraft);
+=======
+        $("#undo").click(() => {
+            if (undoData.length > 1) {
+                redoData.push(undoData.pop());
+                let data = undoData[undoData.length -1];
+                contextReal.putImageData(data, 0, 0);
+            }
+        });
+        $("#redo").click(() => {
+            if (redoData.length > 0) {
+                contextReal.putImageData(redoData[redoData.length - 1], 0, 0);
+                undoData.push(redoData.pop());
+            }
+>>>>>>> 0b23aeaea358cb0d0e3dc8717475f88024666cd9
         });
     </script>
 </body>

@@ -22,6 +22,7 @@ class Polygon extends PaintFunction {
         this.drawPath(contextReal)
         this.path = [];
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.storeUndo();
     }
     drawPath(context){
         context.beginPath();
