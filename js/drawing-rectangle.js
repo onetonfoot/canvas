@@ -5,13 +5,19 @@ class DrawingRectangle extends PaintFunction{
         this.contextDraft = contextDraft;            
     }
     onMouseDown(coord,event){
-        this.contextReal.fillStyle = this.fillColor;
         this.origX = coord[0];  
         this.origY = coord[1];
     }
     onDragging(coord,event){
         this.draw(this.contextDraft,coord)
     }
+    onMouseUp(coord){
+        this.draw(this.contextReal,coord)
+    }
+    onMouseMove(){}
+    onMouseLeave(){}
+    onMouseEnter(){}
+
     draw(context,coord){
         context.beginPath();
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
@@ -21,10 +27,4 @@ class DrawingRectangle extends PaintFunction{
         context.fill();
         context.closePath();
     }
-    onMouseUp(coord){
-        this.draw(this.contextReal,coord)
-    }
-    onMouseMove(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
 }
