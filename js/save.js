@@ -13,14 +13,23 @@ function copyCanvas(canvasId) {
     return canvasCopy
 }
 
-//Not Working
+function downloadCanvas(link,canvasId,filename){
+    link.href = copyCanvas(canvasId).toDataURL();
+    link.download = filename;
+}
+
+
+// $(document).on( 'click', "#download-link", function(e) {
+    // e.preventDefault();
+    // downloadCanvas(this, 'canvas-real', 'test.png');
+// })
+
+// document.getElementById('download-link').addEventListener('click', function() {
+//     downloadCanvas(this, 'canvas-real', 'test.png');
+// }, false);
+
+
 $("#download-link").click(function(e){
-    e.preventDefault();
-    var canvasCopy = copyCanvas("canvas-real")
-    var link = document.querySelector("#download-link")
-    link.href = canvasCopy.toDataURL();
-    link.download = "someImg.png"
-    return false
+    // e.preventDefault();
+    downloadCanvas(this, 'canvas-real', 'test.png');
 })
-
-
