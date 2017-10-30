@@ -1,26 +1,38 @@
 function copyCanvas(canvasId) {
     //create a dummy CANVAS
-    let srcCanvas = document.getElementById(canvasId)
+    let orginalCanvas = document.getElementById(canvasId)
     let canvasCopy = document.createElement("canvas");
-    canvasCopy.width = srcCanvas.width;
-    canvasCopy.height = srcCanvas.height;
-    destCtx = canvasCopy.getContext('2d');
+    canvasCopy.width = orginalCanvas.width;
+    canvasCopy.height = orginalCanvas.height;
+    canvasCopyContext = canvasCopy.getContext('2d');
     //create a rectangle with the desired color
-    destCtx.fillStyle = $("#"+canvasId).css("background-color")
-    destCtx.fillRect(0, 0, srcCanvas.width, srcCanvas.height);
+    canvasCopyContext.fillStyle = $("#"+canvasId).css("background-color")
+    canvasCopyContext.fillRect(0, 0, orginalCanvas.width, orginalCanvas.height);
     //draw the original canvas onto the destination canvas
-    destCtx.drawImage(srcCanvas, 0, 0);
+    canvasCopyContext.drawImage(orginalCanvas, 0, 0);
     return canvasCopy
 }
 
-//Not Working
+function downloadCanvas(link,canvasId,filename){
+    link.href = copyCanvas(canvasId).toDataURL();
+    link.download = filename;
+}
+
+
+
+
+//Prevent deault not working?
 $("#download-link").click(function(e){
-    e.preventDefault();
-    var canvasCopy = copyCanvas("canvas-real")
-    var link = document.querySelector("#download-link")
-    link.href = canvasCopy.toDataURL();
-    link.download = "someImg.png"
-    return false
+    // e.preventDefault();
+    downloadCanvas(this, 'canvas-real', 'test.png');
 })
 
 
+// $(document).on( 'click', "#download-link", function(e) {
+    // e.preventDefault();
+    // downloadCanvas(this, 'canvas-real', 'test.png');
+// })
+
+// document.getElementById('download-link').addEventListener('click', function() {
+//     downloadCanvas(this, 'canvas-real', 'test.png');
+// }, false);

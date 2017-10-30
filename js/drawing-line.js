@@ -15,9 +15,9 @@ class DrawingLine extends PaintFunction{
         
     }
     onDragging(coord,event){
+        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         contextDraft.beginPath();
         contextDraft.moveTo(this.origX,this.origY);
-        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         contextDraft.lineTo(coord[0],coord[1]);
         contextDraft.stroke();
     }

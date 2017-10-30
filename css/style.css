@@ -40,6 +40,9 @@ body {
     border: 1px solid black;
 }
 
+#canvas-real{
+    background-color: white;
+}
 
 
 
@@ -55,6 +58,9 @@ input[type=range][orient=vertical]
 textarea {
     border: 1px dashed black;
     background-color: transparent;
+    padding:0;
+    margin:0;
+    position: relative;
 }
 
 #font-setting {

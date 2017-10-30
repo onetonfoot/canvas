@@ -36,18 +36,18 @@ class Text extends PaintFunction {
             let fontSize = parseInt(textarea.css('font-size').replace("px", ""));
             let isBold = $('#set-bold').is(':checked');
             let isItalic = $('#set-italic').is(':checked');
-            let posOffset = [2,17];
+            let posOffset = {};
+            posOffset.x = 0;
+            posOffset.y = fontSize;
             let strArray = val.split("\n");
             let x = parseInt(textarea.css("left").replace("px", ""));
             let y = parseInt(textarea.css("top").replace("px", ""));
-            let textStyle = `${isBold ? "bold": ""} ${isItalic ? "italic": ""} ${fontSize}pt ${fontFamily}`;
-            // let fontSize = parseInt(textarea.css("font-size").replace("px",""));
-            // let fontFamily = textarea.css("font-family");
+            let textStyle = `${isBold ? "bold": ""} ${isItalic ? "italic": ""} ${fontSize}px ${fontFamily}`;
             self.contextReal.font = textStyle;
             self.contextReal.fillStyle = self.strokeColor;
             
             for (var i = 0; i < strArray.length; i++) {
-                self.contextReal.fillText(strArray[i], x+posOffset[0], y+posOffset[1] + i*fontSize);
+                self.contextReal.fillText(strArray[i], x+posOffset.x, y+posOffset.y + i*(fontSize*(1.42857143) /*adjust for line weight factor*/));
             }
             $(this).off('dblclick');
             textarea.remove();
@@ -77,6 +77,11 @@ class Text extends PaintFunction {
             $('#canvas-container textarea').css("font-family", this.value);
         })
         
+        $("#strokecolor").change(function() {
+            let color = $(".sp-preview-inner").css("background-color");
+            $('#canvas-container textarea').css("color", color);
+            // $('#canvas-container textarea').css("color", color);
+        })
     }
 
     onMouseDown() {}
