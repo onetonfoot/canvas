@@ -29,7 +29,7 @@ class DrawingLine extends PaintFunction{
         this.setContext(this.contextReal)
         this.contextReal.stroke();
         this.contextReal.closePath();
-
+        this.storeUndo();
     }
     onMouseLeave(){}
     onMouseEnter(){}

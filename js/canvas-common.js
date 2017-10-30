@@ -69,6 +69,10 @@ class PaintFunction{
         context.fillStyle = this.fillColor
     }
 
+    storeUndo() {
+        undoData.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+    }
+
     onMouseDown() {}
     onDragging() {}
     onMouseMove() {}

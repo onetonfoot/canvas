@@ -23,6 +23,7 @@ class DrawingRectangle extends PaintFunction{
     }
     onMouseUp(coord){
         this.draw(this.contextReal,coord)
+        this.storeUndo();
     }
     onMouseMove(){}
     onMouseLeave(){}
