@@ -56,6 +56,11 @@
                             <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
                         </button>
                     </div>
+                    <div>
+                        <button id="redo" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="tools">
                     <div>
@@ -71,6 +76,11 @@
                         </button>
                     </div>
                     <div>
+                        <button id="ellipse" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i class="fa fa-bluetooth" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div>
                         <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
                             <i class="fa fa-font" aria-hidden="true"></i>
                         </button>
@@ -80,34 +90,27 @@
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <div>
-                        <button id="redo" type="button" class="btn btn-default" aria-label="Left Align">
-                            <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- eyedropper -->
                 <button id="eyedropper" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-eyedropper" aria-hidden="true"></i>
                 </button>
                 <!-- Stroke Color Selector-->
-                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
+                <button id="1color" type="button" class="btn btn-default" aria-label="Left Align">
                     stroke
                     <br>
                     <input type='text' id="strokecolor" />
                 </button>
                 <!-- Fill Color Selector-->
-                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
+                <button id="2color" type="button" class="btn btn-default" aria-label="Left Align">
                     fill
                     <br>
                     <input type='text' id="fillcolor" />
                 </button>
                 <!-- Bg Color Selector-->
-                <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    bg
-                    <br>
-                    <input type='text' id="bgcolor" />
-                </button>
+                <button id="3color" type="button" class="btn btn-default" aria-label="Left Align">
+                    bg<br><input type='text' id="bgcolor"/>
+                </button>          
                 <!-- Line width -->
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
@@ -231,6 +234,7 @@
     <script type='text/javascript' src="js/polygon.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
+    <script type='text/javascript' src="js/drawing-ellipse.js"></script>
     <script type='text/javascript' src="js/colorwell.js"></script>
     <script type='text/javascript' src="js/line-width.js"></script>
     <script type='text/javascript' src="js/line-cap.js"></script>
@@ -259,6 +263,9 @@
         });
         $("#circle").click(() => {
             currentFunction = new DrawingCircle(contextReal, contextDraft);
+        });
+        $("#ellipse").click(() => {
+            currentFunction = new DrawingEllipse(contextReal, contextDraft);
         });
         $("#text").click(() => {
             currentFunction = new Text(contextReal, contextDraft);
