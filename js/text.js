@@ -1,30 +1,82 @@
 class Text extends PaintFunction {
     constructor(contextReal, contextDraft) {
         super();
+
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+
+        //initial style value
+        this.color = this.strokeColor;
+        this.fontFamily = $('#set-font-family').val();
+        this.fontSize = $('#set-font-size').val();
+        this.bold = $('#set-bold').is(':checked');
+        this.italic = $('#set-italic').is(':checked');
 
         let self = this;
 
         $(function () {
-            let textarea = `<textarea class="movable"></textarea>`;
+            let textarea = document.createElement('textarea');
+            textarea.classList.add("movable");
+            textarea.style.fontFamily = self.fontFamily;
+            textarea.style.color = self.color;
+            textarea.style.fontSize = self.fontSize + "px";
+            textarea.style.fontWeight = self.bold ? "bold": null;
+            textarea.style.fontStyle = self.italic ? "italic" : null;
             $('#canvas-container').append(textarea);
             $('.movable').draggable({
                 cancel: ""
             })
         });
 
-        $('#canvas-container').dblclick(function () {
-            var textarea = $('#canvas-container textarea');
-            var val = textarea.val();
-            var coorX = parseInt(textarea.css("left").replace("px", ""));
-            var coorY = parseInt(textarea.css("top").replace("px", ""));
-            var fontSize = textarea.css("font-size");
-            var font = "serif";
-            self.contextReal.font = `${fontSize} ${font}`;
-            self.contextReal.fillText(val, coorX, coorY + 15);
+        $('#canvas-container').dblclick(function (e) {
+            let textarea = $('#canvas-container textarea');
+            let val = textarea.val();
+            let fontFamily = textarea.css('fontFamily');
+            let color = textarea.css('color');
+            let fontSize = parseInt(textarea.css('font-size').replace("px", ""));
+            let isBold = $('#set-bold').is(':checked');
+            let isItalic = $('#set-italic').is(':checked');
+            let posOffset = [2,17];
+            let strArray = val.split("\n");
+            let x = parseInt(textarea.css("left").replace("px", ""));
+            let y = parseInt(textarea.css("top").replace("px", ""));
+            let textStyle = `${isBold ? "bold": ""} ${isItalic ? "italic": ""} ${fontSize}pt ${fontFamily}`;
+            // let fontSize = parseInt(textarea.css("font-size").replace("px",""));
+            // let fontFamily = textarea.css("font-family");
+            self.contextReal.font = textStyle;
+            self.contextReal.fillStyle = self.strokeColor;
+            
+            for (var i = 0; i < strArray.length; i++) {
+                self.contextReal.fillText(strArray[i], x+posOffset[0], y+posOffset[1] + i*fontSize);
+            }
+            $(this).off('dblclick');
             textarea.remove();
         })
+        
+        $("#set-bold").change(function() {
+            if (this.checked) {
+                $('#canvas-container textarea').css("font-weight", "bold");
+            }   else {
+                $('#canvas-container textarea').css("font-weight", "normal");
+            }
+        })
+
+        $("#set-italic").change(function() {
+            if (this.checked) {
+                $('#canvas-container textarea').css("font-style", "italic");
+            }   else {
+                $('#canvas-container textarea').css("font-style", "unset");
+            }
+        })
+
+        $("#set-font-size").change(function() {
+            $('#canvas-container textarea').css("font-size", this.value + "px");
+        })
+
+        $("#set-font-family").change(function() {
+            $('#canvas-container textarea').css("font-family", this.value);
+        })
+        
     }
 
     onMouseDown() {}

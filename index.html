@@ -100,6 +100,58 @@
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
                     <span class="range-value"></span>
                 </button>
+                <form id="font-setting" class="form-inline">
+                    <label for="set-bold">
+                        <input type="checkbox" id="set-bold">Bold</label>
+                    <label for="set-italic">
+                        <input type="checkbox" id="set-italic">Italic</label>
+                    <select id="set-font-size">
+                        <option value="9">9px</option>
+                        <option value="10">10px</option>
+                        <option value="12" selected>12px</option>
+                        <option value="14">14px</option>
+                        <option value="18">18px</option>
+                        <option value="24">24px</option>
+                        <option value="36">36px</option>
+                        <option value="48">48px</option>
+                        <option value="64">64px</option>
+                        <option value="72">72px</option>
+                        <option value="96">96px</option>
+                        <option value="144">144px</option>
+                        <option value="288">288px</option>
+                    </select>
+                    <select id="set-font-family">
+                        <optgroup label="Sans Serif">
+                            <option value="Arial" selected>Arial</option>
+                            <option value="Arial Black">Arial Black</option>
+                            <option value="Arial Narrow">Arial Narrow</option>
+                            <option value="Gill Sans">Gill Sans</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Impact">Impact</option>
+                            <option value="Tahoma">Tahoma</option>
+                            <option value="Trebuchet MS">Trebuchet MS</option>
+                            <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Serif">
+                            <option value="Baskerville">Baskerville</option>
+                            <option value="Garamond">Garamond</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Hoefler Text">Hoefler Text</option>
+                            <option value="Lucida Bright">Lucida Bright</option>
+                            <option value="Palatino">Palatino</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                            <!-- <option value="Consolas/Monaco">Consolas/Monaco</option> -->
+                            <option value="Courier New">Courier New</option>
+                            <option value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="Copperplate">Copperplate</option>
+                            <option value="Papyrus">Papyrus</option>
+                            <option value="Script">Script</option>
+                        </optgroup>
+                    </select>
                 <!-- Save -->
                 <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align">
                     <a id="download-link"> save

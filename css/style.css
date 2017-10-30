@@ -54,6 +54,11 @@ input[type=range][orient=vertical]
 
 textarea {
     border: 1px dashed black;
+    background-color: transparent;
+}
+
+#font-setting {
+    align-self: flex-end;
 }
 
 #canvas-img{
