@@ -3,6 +3,10 @@ body {
     height: 100%;
 }
 
+.tools .btn {
+    padding: 1px 2px;
+}
+
 #outer-container {
     height: 100%;
     display: flex;

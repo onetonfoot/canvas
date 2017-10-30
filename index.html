@@ -51,6 +51,16 @@
                             <i id="sqaure2" class="fa fa-square-o" aria-hidden="true"></i>
                         </button>
                     </div>
+                    <div>
+                        <button id="undo" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button id="redo" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="tools">
                     <div>
@@ -84,7 +94,7 @@
                 <!-- eyedropper -->
                 <button id="eyedropper" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-eyedropper" aria-hidden="true"></i>
-                </button>  
+                </button>
                 <!-- Stroke Color Selector-->
                 <button id="1color" type="button" class="btn btn-default" aria-label="Left Align">
                     stroke
@@ -158,54 +168,54 @@
                             <option value="Script">Script</option>
                         </optgroup>
                     </select>
-                <!-- Save -->
-                <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align">
-                    <a id="download-link" download="canvas.png" download> save
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    </a>
-                </button>
-                <div class="tools">
-                    <!-- Line Tyoe -->
-                    <div class="dropdown">
-                        Line Type:
-                        <button id="line-cap" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="true">
-                            Round
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li>
-                                <a href="#" data-value="action">Round</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Square</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Butt</a>
-                            </li>
-                        </ul>
+                    <!-- Save -->
+                    <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align">
+                        <a id="download-link" download="canvas.png" download> save
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </a>
+                    </button>
+                    <div class="tools">
+                        <!-- Line Tyoe -->
+                        <div class="dropdown">
+                            Line Type:
+                            <button id="line-cap" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                Round
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a href="#" data-value="action">Round</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Square</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Butt</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Line Join -->
+                        <div class="dropdown">
+                            Line Join:
+                            <button id="line-join" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                Round
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a href="#" data-value="action">Round</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Bevel</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Miter</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- Line Join -->
-                    <div class="dropdown">
-                        Line Join:
-                        <button id="line-join" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="true">
-                            Round
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li>
-                                <a href="#" data-value="action">Round</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Bevel</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Miter</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div id="canvas-container">
                 <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
@@ -234,6 +244,10 @@
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
         // unselect = Default = DrawingLine
+        let undoData = []; //for storing the history data
+        let redoData = []; //for redo the data 
+        undoData[0] = contextReal.createImageData(canvasReal.width, canvasReal.height);
+
         currentFunction = new Pencil(contextReal, contextDraft);
         $("#pencil").click(() => {
             currentFunction = new Pencil(contextReal, contextDraft);
@@ -264,7 +278,20 @@
             currentFunction = new Eyedropper(contextReal, contextDraft);
         });
         $("#polygon").click(() => {
-            currentFunction = new Polygon (contextReal, contextDraft);
+            currentFunction = new Polygon(contextReal, contextDraft);
+        });
+        $("#undo").click(() => {
+            if (undoData.length > 1) {
+                redoData.push(undoData.pop());
+                let data = undoData[undoData.length -1];
+                contextReal.putImageData(data, 0, 0);
+            }
+        });
+        $("#redo").click(() => {
+            if (redoData.length > 0) {
+                contextReal.putImageData(redoData[redoData.length - 1], 0, 0);
+                undoData.push(redoData.pop());
+            }
         });
     </script>
 </body>

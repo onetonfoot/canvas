@@ -14,6 +14,7 @@ class DrawingLine extends PaintFunction{
     onMouseMove(){}
     onMouseUp(coord,event){
         this.draw(this.contextReal,coord);
+        this.storeUndo();
     }
     onMouseLeave(){}
     onMouseEnter(){}

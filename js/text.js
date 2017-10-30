@@ -51,6 +51,7 @@ class Text extends PaintFunction {
             }
             $(this).off('dblclick');
             textarea.remove();
+            undoData.push(self.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
         })
         
         $("#set-bold").change(function() {
