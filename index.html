@@ -76,10 +76,17 @@
                         </button>
                     </div>
                 </div>
+                <div class="tools">
+                    <div>
+                        <button id="curve" type="button" class="btn btn-default" aria-label="Left Align">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABg0lEQVQ4T2M0KdtrxsDwz4yBgenUmS7nUwwkAkbD0t2557pc4o3K9iw83+06mUT9DIxGZbst/v/7Z8bIxHTqXJfrCZINAGkwLNke8f8Px44LExw/kGWAXuEOD2amf4/O93pdI8sAw+Kt8v/+MZj/Z2bZeqnH/SsphjDCFOvmb7X7z/hfhOkv0yn1F1+eX5PitGRkYLL8z/Dv+NWJvkdwGQo3IDR0FfM1aW5dhn//NRgZ/3H/Z2AUvTLBJ0SnYMsaRob/r///Z/rKwMR44+rTr5cZVof9hRkINwDdBq3cDbYMDEy2DAz/DosJ8x9/8+qj5D8mRot/DP9e35gSeICgAdicrJ21iucPA4s/AxPLsZtT/O6D1OB0AS4/q+Wu02f4w6h4a3rgBrIM0MheJ/z777+guzNCZpNlgFzSShdmJgbHv/8Y9j+aF74H5AUQZoJiZgYGBhiGiSHTjJKxi0qfLYq1k4pbfOj54rgikg0QDuwzY2Tnc2dgYNj6ZkXKVpIDET1wAfu/hBG9XNGKAAAAAElFTkSuQmCC" alt="">
+                        </button>
+                    </div>
+                </div>
                 <!-- eyedropper -->
                 <button id="eyedropper" type="button" class="btn btn-default" aria-label="Left Align">
                     <i class="fa fa-eyedropper" aria-hidden="true"></i>
-                </button>  
+                </button>
                 <!-- Stroke Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
                     stroke
@@ -94,8 +101,10 @@
                 </button>
                 <!-- Bg Color Selector-->
                 <button id="color" type="button" class="btn btn-default" aria-label="Left Align">
-                    bg<br><input type='text' id="bgcolor"/>
-                </button>          
+                    bg
+                    <br>
+                    <input type='text' id="bgcolor" />
+                </button>
                 <!-- Line width -->
                 <button class="btn btn-default">
                     <input id="line-width" class="input-range" orient="vertical" type="range" step="1" value="5" min="1" max="30">
@@ -153,54 +162,54 @@
                             <option value="Script">Script</option>
                         </optgroup>
                     </select>
-                <!-- Save -->
-                <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align">
-                    <a id="download-link" download="canvas.png" download> save
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    </a>
-                </button>
-                <div class="tools">
-                    <!-- Line Tyoe -->
-                    <div class="dropdown">
-                        Line Type:
-                        <button id="line-cap" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="true">
-                            Round
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li>
-                                <a href="#" data-value="action">Round</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Square</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Butt</a>
-                            </li>
-                        </ul>
+                    <!-- Save -->
+                    <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align">
+                        <a id="download-link" download="canvas.png" download> save
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </a>
+                    </button>
+                    <div class="tools">
+                        <!-- Line Tyoe -->
+                        <div class="dropdown">
+                            Line Type:
+                            <button id="line-cap" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                Round
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a href="#" data-value="action">Round</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Square</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Butt</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Line Join -->
+                        <div class="dropdown">
+                            Line Join:
+                            <button id="line-join" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                Round
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a href="#" data-value="action">Round</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Bevel</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-value="action">Miter</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- Line Join -->
-                    <div class="dropdown">
-                        Line Join:
-                        <button id="line-join" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="true">
-                            Round
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li>
-                                <a href="#" data-value="action">Round</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Bevel</a>
-                            </li>
-                            <li>
-                                <a href="#" data-value="action">Miter</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div id="canvas-container">
                 <canvas id="canvas-real" class="canvas" width='700px' height='400px'></canvas>
@@ -217,6 +226,7 @@
     <script type='text/javascript' src="js/text.js"></script>
     <script type='text/javascript' src="js/eraser.js"></script>
     <script type='text/javascript' src="js/polygon.js"></script>
+    <script type='text/javascript' src="js/curve.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript' src="js/colorwell.js"></script>
@@ -255,7 +265,10 @@
             currentFunction = new Eyedropper(contextReal, contextDraft);
         });
         $("#polygon").click(() => {
-            currentFunction = new Polygon (contextReal, contextDraft);
+            currentFunction = new Polygon(contextReal, contextDraft);
+        });
+        $("#curve").click(() => {
+            currentFunction = new Curve(contextReal, contextDraft);
         });
     </script>
 </body>
