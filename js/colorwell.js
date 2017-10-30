@@ -1,7 +1,8 @@
 $("#strokecolor").spectrum({
     color: "#000000",
     showInput: true,
-    className: "full-spectrum",
+    //className: "strokespectrum",
+    replacerClassName: "strokespectrum",
     showInitial: true,
     showPalette: true,
     showSelectionPalette: true,
