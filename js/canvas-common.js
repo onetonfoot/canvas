@@ -14,6 +14,12 @@ $('#canvas-draft').mousedown(function (e) {
     currentFunction.onMouseDown([mouseX, mouseY], e);
     dragging = true;
 });
+$('#canvas-draft').dblclick(function (e) {
+    dragging = false;
+    let mouseX = e.pageX - this.offsetLeft;
+    let mouseY = e.pageY - this.offsetTop;
+    currentFunction.onDblClick([mouseX, mouseY], e);
+});
 $('#canvas-draft').mousemove(function (e) {
     if (dragging) {
         let mouseX = e.pageX - this.offsetLeft;

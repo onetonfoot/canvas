@@ -54,6 +54,13 @@
                 </div>
                 <div class="tools">
                     <div>
+                        <button id="polygon" type="button" class="btn btn-default" aria-label="Left Align">
+                            <!-- <i class="fa fa-circle-thin" aria-hidden="true"></i> -->
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAqUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoTzogAAAAOdFJOUxwto36XARCI1Uh3vFhcQuwuKwAAAF1JREFUCB1jCA3NMAgNDQ1gCI1VFFYWADICdIBcCyDDJRUoESwawKAKpEPDXAMYXEGM0AIYgwXGCGeASkVugDKCBKCMlVA1gaVQRhLQZFWgKWEKQMYWFxcXp9LQAAB70SU07IwRpAAAAABJRU5ErkJggg==">
+                        </button>
+                    </div>
+
+                    <div>
                         <button id="circle" type="button" class="btn btn-default" aria-label="Left Align">
                             <i class="fa fa-circle-thin" aria-hidden="true"></i>
                         </button>
@@ -209,6 +216,7 @@
     <script type='text/javascript' src="js/drawing-line.js"></script>
     <script type='text/javascript' src="js/text.js"></script>
     <script type='text/javascript' src="js/eraser.js"></script>
+    <script type='text/javascript' src="js/polygon.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript' src="js/colorwell.js"></script>
@@ -245,6 +253,9 @@
         });
         $("#eyedropper").click(() => {
             currentFunction = new Eyedropper(contextReal, contextDraft);
+        });
+        $("#polygon").click(() => {
+            currentFunction = new Polygon (contextReal, contextDraft);
         });
     </script>
 </body>
