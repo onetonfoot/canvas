@@ -71,6 +71,9 @@ class PaintFunction{
 
     storeUndo() {
         undoData.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+        if (redoData.length > 0) {
+            redoData = [];
+        }
     }
 
     onMouseDown() {}
