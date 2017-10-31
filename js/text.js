@@ -12,7 +12,6 @@ class Text extends PaintFunction {
         this.fontSize = $('#set-font-size').val() + "px";
         this.fontWeight = $('#set-bold').is(':checked') ? "bold":"normal";
         this.fontStyle = $('#set-italic').is(':checked') ? "italic":"unset";
-        console.log(this.fontSize);
         
         let text = this;
         let context = this.contextReal;
