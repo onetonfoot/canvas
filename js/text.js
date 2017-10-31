@@ -7,11 +7,12 @@ class Text extends PaintFunction {
     }
 
     onMouseDown(coord) {
-        this.color = this.strokeColor.toRgbString();
+        this.color = $("#strokecolor").spectrum("get").toRgbString();
         this.fontFamily = $('#set-font-family').val();
-        this.fontSize = $('#set-font-size').val();
+        this.fontSize = $('#set-font-size').val() + "px";
         this.fontWeight = $('#set-bold').is(':checked') ? "bold":"normal";
         this.fontStyle = $('#set-italic').is(':checked') ? "italic":"unset";
+        console.log(this.fontSize);
         
         let text = this;
         let context = this.contextReal;
@@ -93,7 +94,7 @@ class Text extends PaintFunction {
             context.fillStyle = text.strokeColor;
             
             for (var i = 0; i < lines.length; i++) {
-                context.fillText(lines[i], x+posOffset.x, y+posOffset.y + i*(fontSize*(1.42857143) /*adjust for line height factor*/));
+                context.fillText(lines[i], x+posOffset.x, y+posOffset.y + i*(fontSize*(1.42857143) /*adjust for line height*/));
             }
             $(this).off('dblclick');
             textarea.parent().remove();
