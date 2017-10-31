@@ -96,6 +96,7 @@ class Curve extends PaintFunction {
     onDblClick() { 
         contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.drawReal();
+        this.storeUndo();
         this.firstClick = true;
     }
 
