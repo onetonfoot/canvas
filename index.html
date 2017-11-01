@@ -279,16 +279,19 @@
 
         <!-- Save -->
         <div class="tools">
-                <!-- Save -->
-                <!-- <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align"> -->
-                    <a id="download-link" download="canvas.png" download> 
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    </a>
-                <!-- </button> -->
+            <!-- Save -->
+            <!-- <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align"> -->
+            <a id="download-link" download="canvas.png" download>
+                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            </a>
+            <!-- </button> -->
         </div>
     </div>
-    <canvas id="canvas-real" class="canvas"></canvas>
-    <canvas id="canvas-draft" class="canvas"></canvas>
+    <div id="canvas-container">
+        <canvas id="canvas-real" class="canvas"></canvas>
+        <canvas id="canvas-draft" class="canvas"></canvas>
+    </div>
+    
     <script>
         //Click 
         $('body').on('click', '.close', function () {
@@ -297,7 +300,7 @@
         });
         //Toggles pannels
         $(".tools").click(function (e) {
-            e.preventDefault();
+            // e.preventDefault();
             $(".tools").removeClass("selected")
             $(this).toggleClass("selected")
             $(".pannel").addClass("hidden")
@@ -313,7 +316,8 @@
                 canvas.setAttribute("height", h)
             })
         }
-        $(window).load(setCanvasSize())
+        
+        $(window).load(setCanvasSize());
     </script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

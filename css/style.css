@@ -18,6 +18,12 @@ body {
     height: 100vh;
 }
 
+#canvas-container {
+  float: right;
+  width: calc(100vw - 60px);
+  height: 100vh;
+}
+
 #canvas-real{
     background-color: white;
 }
@@ -106,7 +112,7 @@ select{
   height: 100%;
 }
 
-#form-setting{
+#form-setting {
   min-height: 50vh;
   display: flex;
   flex-direction: column;
