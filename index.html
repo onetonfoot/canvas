@@ -330,6 +330,7 @@
     <script type='text/javascript' src="js/line-cap.js"></script>
     <script type='text/javascript' src="js/line-join.js"></script>
     <script type='text/javascript' src="js/eyedropper.js"></script>
+    <script type='text/javascript' src="js/pannel.js"></script>
     <script type='text/javascript' src="js/save.js"></script>
     <script type='text/javascript'>
         // Switch based on User input, for example like clickong a button or something else. We will talk about this part in the section after this one. 
@@ -389,19 +390,6 @@
         });
     </script>
     <script>
-        //Click 
-        $('body').on('click', '.close', function () {
-            document.querySelectorAll(".pannel").forEach(ele => ele.classList.add("hidden"))
-            $(".tools").removeClass("selected")
-        });
-        //Toggles pannels
-        $(".tools").click(function (e) {
-            // e.preventDefault();
-            $(".tools").removeClass("selected")
-            $(this).toggleClass("selected")
-            $(".pannel").addClass("hidden")
-            $(this).find(".pannel").toggleClass("hidden");
-        });
         //Canvas size
         function setCanvasSize() {
             let canvases = document.querySelectorAll(".canvas")
@@ -412,7 +400,6 @@
                 canvas.setAttribute("height", h)
             })
         }
-        $(window).on("load", setCanvasSize())
     </script>
 </body>
 
