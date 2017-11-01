@@ -63,6 +63,12 @@
                             <i class="fa fa-eyedropper" aria-hidden="true"></i>
                         </button>
                     </div>
+                    <div>
+                        <h2>Bucket</h2>
+                        <button id="bucket" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i class="fa fa-bitbucket" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -207,6 +213,7 @@
                             <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
                                 <i class="fa fa-font" aria-hidden="true"></i>
                             </button>
+                            
                         </div>
                     </div>
                     <div class="dropdown" id="font-size">
@@ -249,7 +256,6 @@
                                 <option value="Times New Roman">Times New Roman</option>
                             </optgroup>
                             <optgroup label="Monospace">
-                                <!-- <option value="Consolas/Monaco">Consolas/Monaco</option> -->
                                 <option value="Courier New">Courier New</option>
                                 <option value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
                             </optgroup>
@@ -261,9 +267,6 @@
                         </select>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
 
@@ -322,6 +325,7 @@
     <script type='text/javascript' src="js/eraser.js"></script>
     <script type='text/javascript' src="js/polygon.js"></script>
     <script type='text/javascript' src="js/curve.js"></script>
+    <script type='text/javascript' src="js/bucket.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript' src="js/drawing-ellipse.js"></script>
@@ -374,6 +378,9 @@
         $("#curve").click(() => {
             currentFunction = new Curve(contextReal, contextDraft);
         });
+        $("#bucket").click(() => {
+            currentFunction = new Bucket(contextReal, contextDraft);
+        });
         $("#undo").click(() => {
             if (undoData.length > 1) {
                 redoData.push(undoData.pop());
@@ -411,7 +418,8 @@
                 })
                 $('#canvas-container').css({
                     height: $(window).height(),
-                    width: $(window).width() - $('.sideBar').width()
+                    width: $(window).width() - $('.sideBar').width(),
+                    marginLeft: $('.sideBar').width()
                 })
 
                 let canvases = document.querySelectorAll(".canvas")
