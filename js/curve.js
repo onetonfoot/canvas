@@ -141,7 +141,6 @@ class Curve extends PaintFunction {
     onMouseMove() {}
     onMouseLeave() {}
     onMouseEnter() {
-        this.draw(this.contextDraft);
     }
 
 }

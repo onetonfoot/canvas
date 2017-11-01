@@ -150,38 +150,28 @@
                     <hr>
                 </div>
                 <div class="pannel-grid">
-                    <div id="pencil" class="shapes">
+                    <div id="pencil" class="grid-item">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </div>
-                    <div id="drawingline" class="shapes">
+                    <div id="drawingline" class="grid-item">
                         <i class="fa fa-external-link-square" aria-hidden="true"></i>
                     </div>
-                    <div id="eraser" class="shapes">
+                    <div id="eraser" class="grid-item">
                         <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
                     </div>
-                    <div id="square" class="shapes">
+                    <div id="square" class="grid-item">
                         <i id="sqaure2" class="fa fa-square-o" aria-hidden="true"></i>
                     </div>
-                    <div id="undo" class="shapes">
-                        <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
-                    </div>
-                    <div id="redo" class="shapes">
-                        <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
-
-                    </div>
-                    <div id="polygon" class="shapes">
+                    <div id="polygon" class="grid-item">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAqUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoTzogAAAAOdFJOUxwto36XARCI1Uh3vFhcQuwuKwAAAF1JREFUCB1jCA3NMAgNDQ1gCI1VFFYWADICdIBcCyDDJRUoESwawKAKpEPDXAMYXEGM0AIYgwXGCGeASkVugDKCBKCMlVA1gaVQRhLQZFWgKWEKQMYWFxcXp9LQAAB70SU07IwRpAAAAABJRU5ErkJggg==">
                     </div>
-                    <div id="circle" class="shapes">
+                    <div id="circle" class="grid-item">
                         <i class="fa fa-circle-thin" aria-hidden="true"></i>
                     </div>
-                    <div id="ellipse" class="shapes">
+                    <div id="ellipse" class="grid-item">
                         <i class="fa fa-bluetooth" aria-hidden="true"></i>
                     </div>
-                    <div id="reset" class="shapes">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </div>
-                    <div id="curve" class="shapes">
+                    <div id="curve" class="grid-item">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABg0lEQVQ4T2M0KdtrxsDwz4yBgenUmS7nUwwkAkbD0t2557pc4o3K9iw83+06mUT9DIxGZbst/v/7Z8bIxHTqXJfrCZINAGkwLNke8f8Px44LExw/kGWAXuEOD2amf4/O93pdI8sAw+Kt8v/+MZj/Z2bZeqnH/SsphjDCFOvmb7X7z/hfhOkv0yn1F1+eX5PitGRkYLL8z/Dv+NWJvkdwGQo3IDR0FfM1aW5dhn//NRgZ/3H/Z2AUvTLBJ0SnYMsaRob/r///Z/rKwMR44+rTr5cZVof9hRkINwDdBq3cDbYMDEy2DAz/DosJ8x9/8+qj5D8mRot/DP9e35gSeICgAdicrJ21iucPA4s/AxPLsZtT/O6D1OB0AS4/q+Wu02f4w6h4a3rgBrIM0MheJ/z777+guzNCZpNlgFzSShdmJgbHv/8Y9j+aF74H5AUQZoJiZgYGBhiGiSHTjJKxi0qfLYq1k4pbfOj54rgikg0QDuwzY2Tnc2dgYNj6ZkXKVpIDET1wAfu/hBG9XNGKAAAAAElFTkSuQmCC"
                             alt="">
                     </div>
@@ -277,15 +267,47 @@
             </div>
         </div>
 
-        <!-- Save -->
+        <!-- Options -->
         <div class="tools">
-                <!-- Save -->
-                <!-- <button id="save-btn" type="button" class="btn btn-default" aria-label="Left Align"> -->
-                    <a id="download-link" download="canvas.png" download> 
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    </a>
-                <!-- </button> -->
+            <p class="unselectable">Options</p>
+            <div id="options-pannel" class="pannel hidden">
+                <div class="close">
+                    <svg viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="11" x2="11" y2="1" stroke="white" stroke-width="4" />
+                        <line x1="1" y1="1" x2="11" y2="11" stroke="white" stroke-width="4" />
+                    </svg>
+                </div>
+                <div class="title">
+                    <h1>Options</h1>
+                    <hr>
+                </div>
+                <div class="pannel-grid">
+                    <!-- <div id="save" class="grid-item">
+                        <a id="download-link" download="canvas.png" download>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </a>
+                    </div> -->
+                    <div id="undo" class="grid-item">
+                        <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
+                    </div>
+                    <div id="redo" class="grid-item">
+                        <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
+                    </div>
+                    <div id="reset" class="grid-item">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <a id="download" download="triangle.png">
+                            <button type="button" onClick="download()">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    </div>
     </div>
     <canvas id="canvas-real" class="canvas"></canvas>
     <canvas id="canvas-draft" class="canvas"></canvas>
@@ -372,7 +394,7 @@
         });
         //Toggles pannels
         $(".tools").click(function (e) {
-            e.preventDefault();
+            // e.preventDefault();
             $(".tools").removeClass("selected")
             $(this).toggleClass("selected")
             $(".pannel").addClass("hidden")
@@ -388,7 +410,7 @@
                 canvas.setAttribute("height", h)
             })
         }
-        $(window).on("load",setCanvasSize())
+        $(window).on("load", setCanvasSize())
     </script>
 </body>
 
