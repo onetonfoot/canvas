@@ -136,13 +136,9 @@ input[type=range][orient=vertical]
     padding: 0 4px;
 }
 
-<<<<<<< HEAD
-.textarea {
-=======
 #text-input {
     padding: 0;
     margin: 0;
->>>>>>> 696b7bda5856f198b3e927936e61f745796cd44f
     border: 1px dashed black;
     display: inline-block;
 }
