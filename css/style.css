@@ -1,47 +1,21 @@
 html,
 body {
     height: 100%;
+    width: 100%;
 }
 
 .tools .btn {
     padding: 1px 2px;
 }
 
-#outer-container {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#inner-container {
-    display: flex;
-    flex-direction: column;
-}
-
-#toolbar {
-    height: 150px;
-    width: 700px;
-    border: 1px solid black;
-    border-bottom: 0;
-    display: flex;
-}
-
-.shapes {
-    display: flex;
-    flex-direction: column;
-}
-
-#canvas-container {
-    height: 400px;
-    width: 700px;
-    padding: 1px;
-}
-
 .canvas {
+    display: block;
     position: absolute;
-    border: 1px solid black;
+    /* border: 3px solid black; */
+    margin: 0;
+    left: 60px;
+    width: calc(100vw - 60px);
+    height: 100vh;
 }
 
 #canvas-real{
@@ -49,6 +23,109 @@ body {
 }
 
 
+
+
+/* Sidebar */
+.sideBar {
+  position: absolute;
+  height: 100vh;
+  width: 60px;
+  background-color: rgb(6, 41, 55);
+  z-index: 10;
+}
+
+.sideBar .tools:hover {
+  background-color: rgb(7, 68, 93);
+}
+
+.tools {
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  color: white;
+}
+
+.tools img {
+  width: 50px;
+  height: auto;
+}
+
+.selected {
+  border-left: 2px solid white;
+}
+
+/* Genral pannel stuff */
+.pannel {
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 400px;
+  background-color: rgb(7, 68, 93);
+  color: white;
+  padding: 5px 20px;
+  -webkit-transition-duration: 0.8s;
+}
+
+.hidden {
+  width: 0px !important;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 5px;
+  height: 5px;
+  margin: 5px 10px;
+}
+
+select{
+  color:black;
+}
+
+/* Shapes */
+.pannel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:10px;
+  grid-auto-rows: minmax(80px, auto);
+
+}
+
+.shapes:hover{
+  background-color: rgb(6, 41, 55);
+}
+
+
+/* Text */
+
+.text-content{
+  height: 100%;
+}
+
+#form-setting{
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#form-setting > * {
+    margin: 30px 0;
+}
+
+#font-style{
+  display: flex;
+  flex-direction: row;
+}
+
+#font-style div {
+  margin-right: 20px;
+
+}
 
 input[type=range][orient=vertical]
 {
@@ -59,7 +136,7 @@ input[type=range][orient=vertical]
     padding: 0 4px;
 }
 
-textarea {
+.textarea {
     border: 1px dashed black;
     background-color: transparent;
     padding:0;
@@ -69,4 +146,11 @@ textarea {
 
 #font-setting {
     align-self: flex-end;
+}
+
+/* Prevent db click selecting text */
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }

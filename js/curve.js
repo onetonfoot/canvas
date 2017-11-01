@@ -39,6 +39,7 @@ class Curve extends PaintFunction {
             }
         }
     }
+
     onMouseDown(coord, event) {
         if (this.firstClick){
             this.startPoint(coord)
