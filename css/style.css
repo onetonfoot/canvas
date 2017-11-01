@@ -136,16 +136,29 @@ input[type=range][orient=vertical]
     padding: 0 4px;
 }
 
+<<<<<<< HEAD
 .textarea {
+=======
+#text-input {
+    padding: 0;
+    margin: 0;
+>>>>>>> 696b7bda5856f198b3e927936e61f745796cd44f
     border: 1px dashed black;
+    display: inline-block;
+}
+
+#textarea {
     background-color: transparent;
     padding:0;
     margin:0;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
 }
 
 #font-setting {
-    align-self: flex-end;
+    align-self: flex-start;
 }
 
 /* Prevent db click selecting text */

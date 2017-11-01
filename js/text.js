@@ -4,57 +4,47 @@ class Text extends PaintFunction {
 
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+    }
 
-        //initial style value
-        this.color = this.strokeColor;
+    onMouseDown(coord) {
+        this.color = $("#strokecolor").spectrum("get").toRgbString();
         this.fontFamily = $('#set-font-family').val();
-        this.fontSize = $('#set-font-size').val();
-        this.bold = $('#set-bold').is(':checked');
-        this.italic = $('#set-italic').is(':checked');
-
-        let self = this;
-
-        $(function () {
-            let textarea = document.createElement('textarea');
-            textarea.classList.add("movable");
-            textarea.style.fontFamily = self.fontFamily;
-            textarea.style.color = self.color;
-            textarea.style.fontSize = self.fontSize + "px";
-            textarea.style.fontWeight = self.bold ? "bold": null;
-            textarea.style.fontStyle = self.italic ? "italic" : null;
-            $('#canvas-container').append(textarea);
-            $('.movable').draggable({
-                cancel: ""
-            })
-        });
-
-        $('#canvas-container').dblclick(function (e) {
-            let textarea = $('#canvas-container textarea');
-            let val = textarea.val();
-            let fontFamily = textarea.css('fontFamily');
-            let color = textarea.css('color');
-            let fontSize = parseInt(textarea.css('font-size').replace("px", ""));
-            let isBold = $('#set-bold').is(':checked');
-            let isItalic = $('#set-italic').is(':checked');
-            let posOffset = {};
-            posOffset.x = 0;
-            posOffset.y = fontSize;
-            let strArray = val.split("\n");
-            let x = parseInt(textarea.css("left").replace("px", ""));
-            let y = parseInt(textarea.css("top").replace("px", ""));
-            let textStyle = `${isBold ? "bold": ""} ${isItalic ? "italic": ""} ${fontSize}px ${fontFamily}`;
-            self.contextReal.font = textStyle;
-            self.contextReal.fillStyle = self.strokeColor;
-            
-            for (var i = 0; i < strArray.length; i++) {
-                self.contextReal.fillText(strArray[i], x+posOffset.x, y+posOffset.y + i*(fontSize*(1.42857143) /*adjust for line weight factor*/));
-            }
-            $(this).off('dblclick');
-            textarea.remove();
-            undoData.push(self.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
-        })
+        this.fontSize = $('#set-font-size').val() + "px";
+        this.fontWeight = $('#set-bold').is(':checked') ? "bold":"normal";
+        this.fontStyle = $('#set-italic').is(':checked') ? "italic":"unset";
         
-        $("#set-bold").change(function() {
+        let text = this;
+        let context = this.contextReal;
+
+        //initializing the textarea
+        if ($('#text-input').length == 0) {
+        let newInput = $(`<div id="text-input"><textarea id="textarea"></textarea></div>`);
+        newInput.width(150).height(70).css({
+            left: coord[0] + "px",
+            top: coord[1] + "px",
+        }).draggable({
+            cancel: "text",
+            start: function (){
+                $('#textarea').focus();
+             },
+            stop: function (){
+                $('#textarea').focus();
+             } 
+         }).resizable().appendTo('#canvas-container');
+         newInput.children('#textarea').css({
+            fontFamily: this.fontFamily,
+            fontSize: this.fontSize,
+            color: this.color,
+            fontWeight: this.fontWeight,
+            fontStyle: this.fontStyle,
+         });
+
+         $('#textarea').click(function() {
+             $(this).focus();
+         })
+
+         //adjust the css according to current setting
+         $("#set-bold").change(function() {
             if (this.checked) {
                 $('#canvas-container textarea').css("font-weight", "bold");
             }   else {
@@ -79,13 +69,40 @@ class Text extends PaintFunction {
         })
         
         $("#strokecolor").change(function() {
-            let color = $(".sp-preview-inner").css("background-color");
-            $('#canvas-container textarea').css("color", color);
-            // $('#canvas-container textarea').css("color", color);
+            let color = $("#strokecolor").spectrum("get").toRgbString();
+            $('#canvas-container textarea').css('color', color);
         })
-    }
 
-    onMouseDown() {}
+        //printing the text on the canvas
+        $('#canvas-container').dblclick(function (e) {
+            let textarea = $('#textarea');
+            let val = textarea.val();
+            let fontFamily = textarea.css('fontFamily');
+            let color = textarea.css('color');
+            let fontSize = parseInt(textarea.css('font-size').replace("px", ""));
+            let isBold = $('#set-bold').is(':checked');
+            let isItalic = $('#set-italic').is(':checked');
+            let posOffset = {};
+            posOffset.x = 0;
+            posOffset.y = fontSize;
+            let lines = val.split("\n");
+            let x = parseInt(textarea.parent().css("left").replace("px", ""));
+            let y = parseInt(textarea.parent().css("top").replace("px", ""));
+            let textStyle = `${isBold ? "bold": ""} ${isItalic ? "italic": ""} ${fontSize}px ${fontFamily}`;
+            context.font = textStyle;
+            context.fillStyle = text.strokeColor;
+            
+            for (var i = 0; i < lines.length; i++) {
+                context.fillText(lines[i], x+posOffset.x, y+posOffset.y + i*(fontSize*(1.42857143) /*adjust for line height*/));
+            }
+            $(this).off('dblclick');
+            textarea.parent().remove();
+            
+        })
+        this.storeUndo();
+    }
+}
+
     onDragging() {}
     onMouseMove() {}
     onMouseUp() {}
