@@ -27,7 +27,6 @@ $(".tools").click(function (e) {
 
 
 $(window).on("load", function () {
-    setCanvasSize()
     document.addEventListener('keydown', function (event) {
         if (event.keyCode == 37) {
             document.querySelectorAll(".pannel").forEach(ele => ele.classList.add("hidden"))
@@ -42,9 +41,7 @@ $(window).on("load", function () {
                 --currentToolIndex
                 togglePannel(currentToolIndex)
             }
-            console.log("up was pressed")
         } else if (event.keyCode == 40) {
-
             if (currentToolIndex == $(".tools").length - 1) {
                 currentToolIndex = 0
                 togglePannel(currentToolIndex)
@@ -52,7 +49,6 @@ $(window).on("load", function () {
                 ++currentToolIndex
                 togglePannel(currentToolIndex)
             }
-            console.log("Down was pressed")
         }
     });
 

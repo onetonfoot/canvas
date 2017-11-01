@@ -390,16 +390,41 @@
         });
     </script>
     <script>
-        //Canvas size
-        function setCanvasSize() {
-            let canvases = document.querySelectorAll(".canvas")
-            canvases.forEach((canvas) => {
-                let w = window.getComputedStyle(canvas)["width"]
-                let h = window.getComputedStyle(canvas)["height"]
-                canvas.setAttribute("width", w)
-                canvas.setAttribute("height", h)
-            })
-        }
+        $(function () {
+            //Click 
+            $('body').on('click', '.close', function () {
+                document.querySelectorAll(".pannel").forEach(ele => ele.classList.add("hidden"))
+                $(".tools").removeClass("selected")
+            });
+            //Toggles pannels
+            $(".tools").click(function (e) {
+                // e.preventDefault();
+                $(".tools").removeClass("selected")
+                $(this).toggleClass("selected")
+                $(".pannel").addClass("hidden")
+                $(this).find(".pannel").toggleClass("hidden");
+            });
+            //Canvas size
+            function setCanvasSize() {
+                $('html, body').css({
+                    height: $(window).height(),
+                    width: $(window).width()
+                })
+                $('#canvas-container').css({
+                    height: $(window).height(),
+                    width: $(window).width() - $('.sideBar').width()
+                })
+
+                let canvases = document.querySelectorAll(".canvas")
+                canvases.forEach((canvas) => {
+                    let w = $('#canvas-container').width();
+                    let h = $('#canvas-container').height();
+                    canvas.setAttribute("width", w)
+                    canvas.setAttribute("height", h)
+                })
+            }
+            setCanvasSize();
+        });
     </script>
 </body>
 

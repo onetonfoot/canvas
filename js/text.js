@@ -19,7 +19,7 @@ class Text extends PaintFunction {
         //initializing the textarea
         if ($('#text-input').length == 0) {
         let newInput = $(`<div id="text-input"><textarea id="textarea"></textarea></div>`);
-        newInput.width(150).height(70).css({
+        newInput.width(200).height(100).css({
             left: coord[0] + "px",
             top: coord[1] + "px",
         }).draggable({
