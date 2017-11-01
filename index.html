@@ -289,32 +289,6 @@
     </div>
     <canvas id="canvas-real" class="canvas"></canvas>
     <canvas id="canvas-draft" class="canvas"></canvas>
-    <script>
-        //Click 
-        $('body').on('click', '.close', function () {
-            document.querySelectorAll(".pannel").forEach(ele => ele.classList.add("hidden"))
-            $(".tools").removeClass("selected")
-        });
-        //Toggles pannels
-        $(".tools").click(function (e) {
-            e.preventDefault();
-            $(".tools").removeClass("selected")
-            $(this).toggleClass("selected")
-            $(".pannel").addClass("hidden")
-            $(this).find(".pannel").toggleClass("hidden");
-        });
-        //Canvas size
-        function setCanvasSize() {
-            let canvases = document.querySelectorAll(".canvas")
-            canvases.forEach((canvas) => {
-                let w = window.getComputedStyle(canvas)["width"]
-                let h = window.getComputedStyle(canvas)["height"]
-                canvas.setAttribute("width", w)
-                canvas.setAttribute("height", h)
-            })
-        }
-        $(window).load(setCanvasSize())
-    </script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type='text/javascript' src="js/canvas-common.js"></script>
@@ -351,6 +325,7 @@
             currentFunction = new Eraser(contextReal, contextDraft);
         });
         $("#sqaure").click(() => {
+            console.log("clciked on sqaure")
             currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
         $("#circle").click(() => {
@@ -388,6 +363,32 @@
                 undoData.push(redoData.pop());
             }
         });
+    </script>
+    <script>
+        //Click 
+        $('body').on('click', '.close', function () {
+            document.querySelectorAll(".pannel").forEach(ele => ele.classList.add("hidden"))
+            $(".tools").removeClass("selected")
+        });
+        //Toggles pannels
+        $(".tools").click(function (e) {
+            e.preventDefault();
+            $(".tools").removeClass("selected")
+            $(this).toggleClass("selected")
+            $(".pannel").addClass("hidden")
+            $(this).find(".pannel").toggleClass("hidden");
+        });
+        //Canvas size
+        function setCanvasSize() {
+            let canvases = document.querySelectorAll(".canvas")
+            canvases.forEach((canvas) => {
+                let w = window.getComputedStyle(canvas)["width"]
+                let h = window.getComputedStyle(canvas)["height"]
+                canvas.setAttribute("width", w)
+                canvas.setAttribute("height", h)
+            })
+        }
+        $(window).on("load",setCanvasSize())
     </script>
 </body>
 

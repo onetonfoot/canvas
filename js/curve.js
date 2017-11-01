@@ -68,11 +68,11 @@ class Curve extends PaintFunction {
         this.point[this.drag].x += e.x - this.dPoint.x;
         this.point[this.drag].y += e.y - this.dPoint.y;
         this.dPoint = e;
-        this.draw(contextDraft);
+        this.draw(this.contextDraft);
 
     }
     onMouseUp(coord, event) {
-		this.draw(contextDraft);
+		this.draw(this.contextDraft);
     }
 
     startPoint(coord){
@@ -141,7 +141,7 @@ class Curve extends PaintFunction {
     onMouseMove() {}
     onMouseLeave() {}
     onMouseEnter() {
-        this.draw(canvasDraft);
+        this.draw(this.contextDraft);
     }
 
 }
