@@ -30,7 +30,6 @@ body {
 
 
 
-
 /* Sidebar */
 .sideBar {
   position: absolute;
@@ -92,7 +91,6 @@ select{
   color:black;
 }
 
-/* Shapes */
 .pannel-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -100,8 +98,7 @@ select{
   grid-auto-rows: minmax(80px, auto);
 
 }
-
-.shapes:hover{
+.grid-item:hover{
   background-color: rgb(6, 41, 55);
 }
 
