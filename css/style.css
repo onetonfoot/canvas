@@ -1,3 +1,11 @@
+
+/* hmtl,body{
+    overflow: hidden;
+    scroll-behavior:
+} */
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 #side-bar {
     position: absolute;
     top: 0;
