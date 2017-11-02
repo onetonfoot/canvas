@@ -18,21 +18,7 @@ function downloadCanvas(link,canvasId,filename){
     link.download = filename;
 }
 
-
-
-
-//Prevent deault not working?
-$("#download-link").click(function(e){
-    // e.preventDefault();
+$("body").on("click","#download",function(e){
     downloadCanvas(this, 'canvas-real', 'test.png');
+    console.log(e)
 })
-
-
-// $(document).on( 'click', "#download-link", function(e) {
-    // e.preventDefault();
-    // downloadCanvas(this, 'canvas-real', 'test.png');
-// })
-
-// document.getElementById('download-link').addEventListener('click', function() {
-//     downloadCanvas(this, 'canvas-real', 'test.png');
-// }, false);
