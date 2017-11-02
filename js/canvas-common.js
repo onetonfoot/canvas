@@ -5,6 +5,10 @@ let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
 
+let undoData = []; //for storing the history data
+let redoData = []; //for the redo data 
+undoData[0] = contextReal.createImageData(canvasReal.width, canvasReal.height);
+
 $('#canvas-draft').mousedown(function (e) {
     let mouseX = e.pageX - this.offsetLeft;
     let mouseY = e.pageY - this.offsetTop;

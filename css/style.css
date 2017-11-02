@@ -1,12 +1,7 @@
-html,
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
 
 #side-bar {
     position: absolute;
+    top: 0;
     height: 100%;
     width: 60px;
     background-color: rgb(6, 41, 55);
@@ -16,11 +11,18 @@ body {
     color: white;
 }
 
+#canvas-container {
+    outline:2px solid black;
+}
+
+.canvas {
+    position: absolute;
+}
+
 
 .side-bar-grid {
   display: grid;
   position: absolute;
-  top: 60px;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: minmax(10px, 70px);
 
@@ -42,6 +44,7 @@ body {
 
 #top-bar {
     position: absolute;
+    top: 0;
     left: 60px;
     width: 100%;
     height: 60px;
@@ -92,6 +95,23 @@ h1,h2,h3{
 
 input {
     max-height: 10px;
+}
+
+#text-input {
+    padding: 0;
+    margin: 0;
+    border: 1px dashed black;
+    display: inline-block;
+}
+
+#textarea {
+    background-color: transparent;
+    padding:0;
+    margin:0;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
 }
 
 input[type=range][orient=vertical]
