@@ -52,12 +52,13 @@ body {
     align-items: center;
 }
 
-#top-bar div {
+#top-bar > div {
     margin: auto 2px;
     display: flex;
     flex-direction: row;
     text-align: center;
     vertical-align: middle;
+    align-items: center;
 }
 
 #top-bar h2 {
@@ -73,7 +74,9 @@ body {
 .dropdown{
     color: black;
 }
-
+#font-type{
+    margin: auto 4px;
+}
 /* #font-type{
     display: flex;
     flex-direction: column;
