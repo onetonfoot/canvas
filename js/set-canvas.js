@@ -5,10 +5,16 @@ function setCanvasSize() {
     //     width: $(window).width()
     // })
     $('#canvas-container').css({
-        height: $(window).height() - $('#top-bar').height(),
-        width: $(window).width() - $('#side-bar').width(),
-        marginLeft: $('#side-bar').width(),
-        marginTop: $('#top-bar').height()
+        // height: $(window).height() - $('#top-bar').height(),
+        // width: $(window).width() - $('#side-bar').width(),
+        // marginLeft: $('#side-bar').width(),
+        // marginTop: $('#top-bar').height()
+        // height: window.innerHeight - $('#top-bar').height(),
+        // width: window.innerWidth - $('#side-bar').width(),
+        // marginLeft: "60px",
+        // marginTop: "60px",
+        height: window.innerHeight ,
+        width: window.innerWidth ,
     });
 
     let canvases = $('.canvas');
