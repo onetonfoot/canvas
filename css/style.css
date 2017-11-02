@@ -33,6 +33,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 .canvas {
     position: absolute;
+    touch-action: none;
 }
 
 .side-bar-grid {
