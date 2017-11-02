@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 html,
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+=======
+.tools .btn {
+    padding: 1px 2px;
+>>>>>>> 46383799d2446f491fda1ad1c3a4750f4cd32e63
 }
 
 #side-bar {
@@ -16,6 +21,12 @@ body {
     color: white;
 }
 
+<<<<<<< HEAD
+=======
+#canvas-container {
+  outline:2px solid black;
+}
+>>>>>>> 46383799d2446f491fda1ad1c3a4750f4cd32e63
 
 .side-bar-grid {
   display: grid;

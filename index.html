@@ -24,10 +24,58 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div id="side-bar">
         <div class="side-bar-grid">
             <div id="pencil" class="grid-item">
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+=======
+    <div id="sideBar" class="sideBar unselectable">
+        <!-- Colors -->
+        <div class="tools">
+            <p>Colors</p>
+            <div id="colors-pannel" class="pannel hidden">
+                <div class="close">
+                    <svg viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="11" x2="11" y2="1" stroke="white" stroke-width="4" />
+                        <line x1="1" y1="1" x2="11" y2="11" stroke="white" stroke-width="4" />
+                    </svg>
+                </div>
+                <div class="title">
+                    <h1>Colors</h1>
+                    <hr>
+                </div>
+                <div class="content">
+                    <!-- Stroke Color Selector-->
+                    <div id="1color">
+                        <h2>Stroke</h2>
+                        <input type='text' id="strokecolor" />
+                    </div>
+                    <!-- Fill Color Selector-->
+                    <div id="2color">
+                        <h2>Fill</h2>
+                        <input type='text' id="fillcolor" />
+                    </div>
+                    <!-- Bg Color Selector-->
+                    <div id="3color">
+                        <h2>Background color</h2>
+                        <input type='text' id="bgcolor" />
+                    </div>
+                    <!-- eyedropper -->
+                    <div>
+                        <h2>Color selector</h2>
+                        <button id="eyedropper" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i class="fa fa-eyedropper" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <h2>Bucket</h2>
+                        <button id="bucket" type="button" class="btn btn-default" aria-label="Left Align">
+                            <i class="fa fa-bitbucket" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+>>>>>>> 46383799d2446f491fda1ad1c3a4750f4cd32e63
             </div>
             <div id="drawingline" class="grid-item">
                 <i class="fa fa-external-link-square" aria-hidden="true"></i>
@@ -147,11 +195,83 @@
                         <input type="checkbox" id="set-bold">Bold
                     </label>
                 </div>
+<<<<<<< HEAD
                 <div>
                     <label for="set-italic">
                         <input type="checkbox" id="set-italic">Italic</label>
                 </div>
 
+=======
+                <div id="form-setting">
+                    <div id="font-style">
+                        <div>
+                            <label for="set-bold">
+                                <input type="checkbox" id="set-bold">Bold
+                            </label>
+                        </div>
+                        <div>
+                            <label for="set-italic">
+                                <input type="checkbox" id="set-italic">Italic</label>
+                        </div>
+                        <div>
+                            <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                            </button>
+                            
+                        </div>
+                    </div>
+                    <div class="dropdown" id="font-size">
+                        <select id="set-font-size">
+                            <option value="9">9px</option>
+                            <option value="10">10px</option>
+                            <option value="12" selected>12px</option>
+                            <option value="14">14px</option>
+                            <option value="18">18px</option>
+                            <option value="24">24px</option>
+                            <option value="36">36px</option>
+                            <option value="48">48px</option>
+                            <option value="64">64px</option>
+                            <option value="72">72px</option>
+                            <option value="96">96px</option>
+                            <option value="144">144px</option>
+                            <option value="288">288px</option>
+                        </select>
+                    </div>
+                    <div class="dropdown" id="font-family">
+                        <select id="set-font-family">
+                            <optgroup label="Sans Serif">
+                                <option value="Arial" selected>Arial</option>
+                                <option value="Arial Black">Arial Black</option>
+                                <option value="Arial Narrow">Arial Narrow</option>
+                                <option value="Gill Sans">Gill Sans</option>
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                                <option value="Verdana">Verdana</option>
+                            </optgroup>
+                            <optgroup label="Serif">
+                                <option value="Baskerville">Baskerville</option>
+                                <option value="Garamond">Garamond</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Hoefler Text">Hoefler Text</option>
+                                <option value="Lucida Bright">Lucida Bright</option>
+                                <option value="Palatino">Palatino</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                            </optgroup>
+                            <optgroup label="Monospace">
+                                <option value="Courier New">Courier New</option>
+                                <option value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option value="Copperplate">Copperplate</option>
+                                <option value="Papyrus">Papyrus</option>
+                                <option value="Script">Script</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+>>>>>>> 46383799d2446f491fda1ad1c3a4750f4cd32e63
             </div>
             <div>
                 <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
@@ -225,6 +345,7 @@
     <script type='text/javascript' src="js/eraser.js"></script>
     <script type='text/javascript' src="js/polygon.js"></script>
     <script type='text/javascript' src="js/curve.js"></script>
+    <script type='text/javascript' src="js/bucket.js"></script>
     <script type='text/javascript' src="js/drawing-rectangle.js"></script>
     <script type='text/javascript' src="js/drawing-circle.js"></script>
     <script type='text/javascript' src="js/drawing-ellipse.js"></script>
@@ -278,6 +399,9 @@
         $("#curve").click(() => {
             currentFunction = new Curve(contextReal, contextDraft);
         });
+        $("#bucket").click(() => {
+            currentFunction = new Bucket(contextReal, contextDraft);
+        });
         $("#undo").click(() => {
             if (undoData.length > 1) {
                 redoData.push(undoData.pop());
@@ -315,7 +439,8 @@
                 })
                 $('#canvas-container').css({
                     height: $(window).height(),
-                    width: $(window).width() - $('.sideBar').width()
+                    width: $(window).width() - $('.sideBar').width(),
+                    marginLeft: $('.sideBar').width()
                 })
 
                 let canvases = document.querySelectorAll(".canvas")
