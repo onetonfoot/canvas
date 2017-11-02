@@ -14,13 +14,15 @@ class Bucket extends PaintFunction {
         let startR = startPixel.data[0];
         let startG = startPixel.data[1];
         let startB = startPixel.data[2];
+        let startA = startPixel.data[3];
+        let maxLoop = 10000000;
         let loop = 0;
 
         let pixelStack = [
             [coord[0], coord[1]]
         ];
 
-        while (pixelStack.length && loop < 500000) {
+        while (pixelStack.length && loop < maxLoop) {
             var newPos, x, y, pixelPos, reachLeft, reachRight;
             newPos = pixelStack.pop();
             x = newPos[0];
@@ -63,7 +65,7 @@ class Bucket extends PaintFunction {
                 loop++;
             }
         }
-        if (loop < 500000) {
+        if (loop < maxLoop) {
             this.contextReal.putImageData(colorLayer, 0, 0);
             this.storeUndo();
         }
@@ -72,8 +74,9 @@ class Bucket extends PaintFunction {
             var r = colorLayer.data[pixelPos];
             var g = colorLayer.data[pixelPos + 1];
             var b = colorLayer.data[pixelPos + 2];
+            var a = colorLayer.data[pixelPos + 3];
 
-            return (r == startR && g == startG && b == startB);
+            return (r == startR && g == startG && b == startB && a== startA);
         }
 
         function colorPixel(pixelPos) {
