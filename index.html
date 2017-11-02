@@ -27,29 +27,31 @@
     <div id="side-bar">
         <div class="side-bar-grid">
             <div id="pencil" class="grid-item">
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                <img src="img/Pencil-443728.png" alt="">
+                <!-- <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> -->
             </div>
             <div id="drawingline" class="grid-item">
-                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <img src="img/Line-443721.png" alt="">
             </div>
             <div id="eraser" class="grid-item">
-                <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+                <img src="img/Eraser-443715.png" alt="">
             </div>
             <div id="square" class="grid-item">
-                <i class="fa fa-square-o" aria-hidden="true"></i>
+                <img src="img/Rectangle-133242.png" alt="">
+                <!-- <i class="fa fa-square-o" aria-hidden="true"></i> -->
             </div>
             <div id="polygon" class="grid-item">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAqUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoTzogAAAAOdFJOUxwto36XARCI1Uh3vFhcQuwuKwAAAF1JREFUCB1jCA3NMAgNDQ1gCI1VFFYWADICdIBcCyDDJRUoESwawKAKpEPDXAMYXEGM0AIYgwXGCGeASkVugDKCBKCMlVA1gaVQRhLQZFWgKWEKQMYWFxcXp9LQAAB70SU07IwRpAAAAABJRU5ErkJggg==">
+                <img src="img/Rectangular-443729.png" alt="">
             </div>
             <div id="circle" class="grid-item">
                 <i class="fa fa-circle-thin" aria-hidden="true"></i>
             </div>
             <div id="ellipse" class="grid-item">
-                <i class="fa fa-bluetooth" aria-hidden="true"></i>
+                <img src="img/Oval shape-133240.png" alt="">
+                <!-- <i class="fa fa-bluetooth" aria-hidden="true"></i> -->
             </div>
             <div id="curve" class="grid-item">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABg0lEQVQ4T2M0KdtrxsDwz4yBgenUmS7nUwwkAkbD0t2557pc4o3K9iw83+06mUT9DIxGZbst/v/7Z8bIxHTqXJfrCZINAGkwLNke8f8Px44LExw/kGWAXuEOD2amf4/O93pdI8sAw+Kt8v/+MZj/Z2bZeqnH/SsphjDCFOvmb7X7z/hfhOkv0yn1F1+eX5PitGRkYLL8z/Dv+NWJvkdwGQo3IDR0FfM1aW5dhn//NRgZ/3H/Z2AUvTLBJ0SnYMsaRob/r///Z/rKwMR44+rTr5cZVof9hRkINwDdBq3cDbYMDEy2DAz/DosJ8x9/8+qj5D8mRot/DP9e35gSeICgAdicrJ21iucPA4s/AxPLsZtT/O6D1OB0AS4/q+Wu02f4w6h4a3rgBrIM0MheJ/z777+guzNCZpNlgFzSShdmJgbHv/8Y9j+aF74H5AUQZoJiZgYGBhiGiSHTjJKxi0qfLYq1k4pbfOj54rgikg0QDuwzY2Tnc2dgYNj6ZkXKVpIDET1wAfu/hBG9XNGKAAAAAElFTkSuQmCC"
-                    alt="">
+                <img src="img/Nodes-443707.png" alt="">
             </div>
             <div id="undo" class="grid-item">
                 <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
@@ -61,11 +63,11 @@
                 <i class="fa fa-trash" aria-hidden="true"></i>
             </div>
             <div>
-                <a id="download" download="triangle.png">
-                    <button type="button" onClick="download()">
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    </button>
-                </a>
+                <div id="download-div">
+                    <a id="download" download="triangle.png">
+                        <img src="img/save.png" alt="">
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -73,14 +75,18 @@
     <div id="top-bar">
         <!-- Stroke Color Selector-->
         <div class="color" id="1color">
-            <div style:"background-color = white" >
-                <img src="img/color-palette-icon.png" height=30px alt="">
+            <div style: "background-color = white">
+                <!-- <img src="img/color-palette-icon.png" height=30px alt=""> -->
+                <h2>Stroke</h2>
+                <!-- <img src="img/Palette-443726.png" alt=""> -->
             </div>
             <input type='text' id="strokecolor" />
         </div>
         <!-- Fill Color Selector-->
         <div class="color" id="2color">
             <h2>Fill</h2>
+            <!-- <img src="img/Bucket drop-443710.png" alt=""> -->
+            <!-- Bucket drop-443710.png -->
             <input type='text' id="fillcolor" />
         </div>
         <!-- Bg Color Selector-->
@@ -149,6 +155,11 @@
             </button>
         </div>
         <div id="font-style">
+            <div>
+                <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
+                    <i class="fa fa-font" aria-hidden="true"></i>
+                </button>
+            </div>
             <div id="font-type">
                 <div>
                     <label for="set-bold">
@@ -160,11 +171,6 @@
                         <input type="checkbox" id="set-italic">Italic</label>
                 </div>
 
-            </div>
-            <div>
-                <button id="text" type="button" class="btn btn-default" aria-label="Left Align">
-                    <i class="fa fa-font" aria-hidden="true"></i>
-                </button>
             </div>
         </div>
         <div class="dropdown" id="font-size">
