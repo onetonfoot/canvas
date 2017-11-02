@@ -6,11 +6,11 @@ class Bucket extends PaintFunction {
     }
 
     onMouseDown(coord, e) {
-        let color = $("#strokecolor").spectrum("get").toRgb();
+        let color = $("#fillcolor").spectrum("get").toRgb();
         let canvasWidth = canvasReal.width;
         let canvasHeight = canvasReal.height;
         let colorLayer = this.contextReal.getImageData(x, y, canvasWidth, canvasHeight);
-        let startPixel = this.contextReal.getImageData(coord[0],coord[1], 1, 1);
+        let startPixel = this.contextReal.getImageData(coord[0], coord[1], 1, 1);
         let startR = startPixel.data[0];
         let startG = startPixel.data[1];
         let startB = startPixel.data[2];
@@ -64,9 +64,10 @@ class Bucket extends PaintFunction {
             }
         }
         if (loop < 500000) {
-        this.contextReal.putImageData(colorLayer, 0, 0);
-        this.storeUndo();
+            this.contextReal.putImageData(colorLayer, 0, 0);
+            this.storeUndo();
         }
+
         function matchStartColor(pixelPos) {
             var r = colorLayer.data[pixelPos];
             var g = colorLayer.data[pixelPos + 1];

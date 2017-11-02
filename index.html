@@ -36,7 +36,7 @@
                 <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
             </div>
             <div id="square" class="grid-item">
-                <i id="sqaure2" class="fa fa-square-o" aria-hidden="true"></i>
+                <i class="fa fa-square-o" aria-hidden="true"></i>
             </div>
             <div id="polygon" class="grid-item">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAqUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoTzogAAAAOdFJOUxwto36XARCI1Uh3vFhcQuwuKwAAAF1JREFUCB1jCA3NMAgNDQ1gCI1VFFYWADICdIBcCyDDJRUoESwawKAKpEPDXAMYXEGM0AIYgwXGCGeASkVugDKCBKCMlVA1gaVQRhLQZFWgKWEKQMYWFxcXp9LQAAB70SU07IwRpAAAAABJRU5ErkJggg==">
@@ -256,7 +256,7 @@
         $("#eraser").click(() => {
             currentFunction = new Eraser(contextReal, contextDraft);
         });
-        $("#sqaure").click(() => {
+        $("#square").click(() => {
             console.log("clciked on sqaure")
             currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
