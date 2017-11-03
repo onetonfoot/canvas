@@ -19,6 +19,6 @@ function downloadCanvas(link,canvasId,filename){
 }
 
 $("body").on("click","#download",function(e){
-    downloadCanvas(this, 'canvas-real', 'test.png');
+    downloadCanvas(this, 'canvas-real', 'image.png');
     console.log(e)
 })
